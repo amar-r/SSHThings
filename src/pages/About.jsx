@@ -51,11 +51,11 @@ const About = () => {
               className="lg:col-span-1"
             >
               <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 text-center">
-                <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-                  <span className="text-4xl font-bold text-gray-500 dark:text-gray-400">
-                    A
-                  </span>
-                </div>
+                <img 
+                  src="/profile.jpg" 
+                  alt="Amar Rathore" 
+                  className="w-32 h-32 mx-auto mb-6 rounded-full object-cover border-4 border-white dark:border-gray-700 shadow-lg"
+                />
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
                   Amar Rathore
                 </h2>
