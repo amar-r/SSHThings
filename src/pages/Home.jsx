@@ -7,18 +7,18 @@ const Home = () => {
   const features = [
     {
       icon: CodeBracketIcon,
-      title: 'Infrastructure as Code',
-      description: 'Terraform configurations, Kubernetes manifests, and infrastructure automation patterns.',
+      title: 'Homelab Projects',
+      description: 'Docker containers, self-hosted services, and home automation experiments.',
     },
     {
       icon: ServerIcon,
-      title: 'Cloud Solutions',
-      description: 'AWS architecture, containerization strategies, and cloud-native development practices.',
+      title: 'Personal Automation',
+      description: 'Scripts, workflows, and tools I build to make life easier.',
     },
     {
       icon: WrenchScrewdriverIcon,
-      title: 'DevOps Automation',
-      description: 'CI/CD pipelines, monitoring setups, and operational automation workflows.',
+      title: 'Random Projects',
+      description: 'From lawn care automation to whatever interesting things I\'m tinkering with.',
     },
   ]
 
@@ -26,9 +26,9 @@ const Home = () => {
     <>
       <Helmet>
         <title>DOIT - Docs Of Interesting Things</title>
-        <meta name="description" content="Lead Systems Engineer Amar Rathore's blog sharing infrastructure automation, cloud solutions, and technical insights from 13+ years of experience." />
+        <meta name="description" content="Amar's personal blog about homelab projects, automation experiments, and random interesting things." />
         <meta property="og:title" content="DOIT - Docs Of Interesting Things" />
-        <meta property="og:description" content="Lead Systems Engineer Amar Rathore's blog sharing infrastructure automation, cloud solutions, and technical insights from 13+ years of experience." />
+        <meta property="og:description" content="Amar's personal blog about homelab projects, automation experiments, and random interesting things." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://amardoesthings.com" />
       </Helmet>
@@ -63,8 +63,8 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto"
               >
-                A DevOps engineer's blog sharing infrastructure automation, cloud solutions, 
-                and technical insights from building scalable systems.
+                A personal blog about homelab projects, automation experiments, 
+                and random interesting things I'm working on.
               </motion.p>
               
               <motion.div
@@ -99,7 +99,7 @@ const Home = () => {
                 What I Write About
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                From homelab adventures to automation experiments, here's what you'll find in my blog.
+                From homelab adventures to lawn care automation, here's what I'm working on.
               </p>
             </div>
             
@@ -133,7 +133,7 @@ const Home = () => {
             </h2>
             <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
               Dive into my latest posts and discover interesting projects, 
-              automation tips, and technical insights.
+              automation experiments, and random things I'm building.
             </p>
             <Link
               to="/blog"

@@ -4,9 +4,9 @@ import { EnvelopeIcon, DocumentArrowDownIcon } from '@heroicons/react/24/outline
 
 const About = () => {
   const skills = [
-    { category: 'Cloud & Infrastructure', items: ['AWS', 'Azure', 'Docker', 'Terraform', 'Packer', 'Linux', 'Windows Server'] },
-    { category: 'DevOps & Automation', items: ['CI/CD', 'Jenkins', 'CodeBuild', 'PowerShell', 'Bash', 'Python', 'Power Automate'] },
-    { category: 'Monitoring & Security', items: ['Splunk', 'CloudWatch', 'SCCM/MECM', 'PKI', 'RBAC', 'IAM', 'CIS Benchmarks'] },
+    { category: 'Homelab Tech', items: ['Docker', 'Ubuntu', 'pfSense', 'Pi-hole', 'Self-hosted Services', 'Home Automation'] },
+    { category: 'Personal Projects', items: ['Python', 'Bash', 'Automation Scripts', 'IoT Projects', 'Lawn Care Automation'] },
+    { category: 'Learning & Experimenting', items: ['New Technologies', 'Open Source', 'DIY Projects', 'Random Automation'] },
   ]
 
   return (
@@ -34,7 +34,7 @@ const About = () => {
                 About
               </h1>
               <p className="text-xl text-gray-600 dark:text-gray-300">
-                Lead Systems Engineer specializing in AWS Cloud, Infrastructure Automation, and Security
+                Personal projects, homelab experiments, and random things I'm building
               </p>
             </motion.div>
           </div>
@@ -60,7 +60,7 @@ const About = () => {
                   Amar Rathore
                 </h2>
                               <p className="text-gray-600 dark:text-gray-400 mb-6">
-                Lead Systems Engineer
+                Homelab Enthusiast
               </p>
                 
                 <div className="space-y-3">
@@ -97,19 +97,18 @@ const About = () => {
                 </h3>
                 <div className="prose prose-gray dark:prose-invert max-w-none">
                                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                     I've spent 13+ years building and automating infrastructure across Windows, Linux, and cloud environments. 
-                     I like working with Terraform, Docker, and Python to create secure, scalable systems in AWS and Azure. 
-                     My focus is helping teams modernize, simplify, and move faster.
+                     This is my personal space for documenting projects, experiments, and random things I'm working on. 
+                     It's completely separate from my professional work - just stuff I find interesting and want to share.
                    </p>
                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                      This blog, DOIT (Docs Of Interesting Things), serves as my digital garden where I document homelab projects, 
-                     automation experiments, and technical insights. It's a space for me to share knowledge, learn in public, 
-                     and connect with others who share similar interests in DevOps and infrastructure.
+                     automation experiments, and whatever else catches my interest. It's a space for me to share knowledge, learn in public, 
+                     and connect with others who share similar interests.
                    </p>
                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                     Outside of work, I maintain a personal homelab with 20+ Docker containers, pfSense for firewalling, 
-                     and Pi-hole for DNS filtering. I'm passionate about experimenting with cloud-native tools, 
-                     streamlining workflows, and learning by building.
+                     I maintain a personal homelab with 20+ Docker containers, pfSense for firewalling, 
+                     and Pi-hole for DNS filtering. I'm also working on lawn care automation and other random projects. 
+                     This is where I document all of that.
                    </p>
                 </div>
               </div>
