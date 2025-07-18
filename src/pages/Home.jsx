@@ -44,8 +44,8 @@ const Home = () => {
                 transition={{ duration: 0.6 }}
                 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6"
               >
-                Hi, I'm{' '}
-                <span className="text-primary-600 dark:text-primary-400">Amar</span>
+                Welcome to{' '}
+                <span className="text-primary-600 dark:text-primary-400">DOIT</span>
               </motion.h1>
               
               <motion.p
@@ -54,7 +54,7 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto"
               >
-                Lead Systems Engineer specializing in AWS Cloud, Infrastructure Automation, and Security
+                Docs Of Interesting Things by Amar
               </motion.p>
               
               <motion.p
@@ -63,8 +63,8 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto"
               >
-                I've spent 13+ years building and automating infrastructure across Windows, Linux, and cloud environments. 
-                I like working with Terraform, Docker, and Python to create secure, scalable systems in AWS and Azure.
+                A DevOps engineer's blog sharing infrastructure automation, cloud solutions, 
+                and technical insights from building scalable systems.
               </motion.p>
               
               <motion.div
