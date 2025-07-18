@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DOIT - Docs Of Interesting Things</title>
+    <description>A personal blog sharing homelab projects, automation experiments, and technical insights.</description>
+    <link>https://amardoesthings.com</link>
+    <atom:link href="https://amardoesthings.com/rss.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language>
+    <lastBuildDate>Mon, 15 Jan 2024 12:00:00 GMT</lastBuildDate>
+    
+    <item>
+      <title>Welcome to DOIT - My First Blog Post</title>
+      <description>An introduction to my personal blog where I'll be sharing homelab projects, automation experiments, and technical insights.</description>
+      <link>https://amardoesthings.com/blog/first-post</link>
+      <guid>https://amardoesthings.com/blog/first-post</guid>
+      <pubDate>Mon, 15 Jan 2024 12:00:00 GMT</pubDate>
+      <category>introduction</category>
+      <category>blog</category>
+      <category>homelab</category>
+    </item>
+  </channel>
+</rss> 

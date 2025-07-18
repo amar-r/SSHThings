@@ -1,0 +1,64 @@
+project:
+  name: DOIT
+  description: Personal blog site for Amar to document homelab projects, automation experiments, and other technical ramblings.
+  goals:
+    - Build a static blog using React and Tailwind CSS
+    - Publish Markdown-based posts
+    - Deploy using GitHub Pages and GitHub Actions
+    - Keep content and layout modern, readable, and responsive
+
+tech_stack:
+  frontend:
+    framework: react
+    styling: tailwind
+    build_tool: vite
+    languages: [javascript]
+  deployment:
+    platform: github-pages
+    use_github_actions: true
+    output_directory: dist
+    branch: gh-pages
+    custom_domain: amardoesthings.com
+
+features:
+  - blog
+  - markdown_support
+  - seo
+  - responsive_design
+  - dark_mode
+  - rss_feed
+  - custom_404_page
+  - animated_transitions
+
+structure:
+  content_directory: posts
+  public_assets:
+    - profile.jpg
+    - resume.pdf
+    - favicon.ico
+  components:
+    - Header
+    - Footer
+    - BlogPost
+    - BlogList
+    - About
+    - Contact
+    - PostLayout
+    - NotFound
+    - SEO (Helmet integration)
+
+seo:
+  open_graph: true
+  twitter_cards: true
+  canonical_links: true
+
+blog:
+  format: markdown
+  syntax_highlighting: true
+  tagging: true
+  example_post: true
+
+quality:
+  accessibility: true
+  readable_typography: true
+  mobile_first: true
