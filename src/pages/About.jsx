@@ -12,12 +12,12 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About - DOIT</title>
+        <title>About - sshthings</title>
         <meta name="description" content="Learn more about Amar Rathore, Lead Systems Engineer with 13+ years of experience in AWS Cloud, Infrastructure Automation, and Security." />
-        <meta property="og:title" content="About - DOIT" />
+        <meta property="og:title" content="About - sshthings" />
         <meta property="og:description" content="Learn more about Amar Rathore, Lead Systems Engineer with 13+ years of experience in AWS Cloud, Infrastructure Automation, and Security." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://amardoesthings.com/about" />
+        <meta property="og:url" content="https://sshthings.com/about" />
       </Helmet>
 
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -101,9 +101,9 @@ const About = () => {
                      It's completely separate from my professional work - just stuff I find interesting and want to share.
                    </p>
                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                     This blog, DOIT (Docs Of Interesting Things), serves as my digital garden where I document homelab projects, 
-                     automation experiments, and whatever else catches my interest. It's a space for me to share knowledge, learn in public, 
-                     and connect with others who share similar interests.
+                     This blog, sshthings, serves as my digital garden where I document self-hosting projects, 
+                     automation experiments, and whatever else catches my interest. It's a space for me to share knowledge,
+                     learnings, and experiences from my journey in technology.
                    </p>
                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                      I maintain a personal homelab with 20+ Docker containers, pfSense for firewalling, 

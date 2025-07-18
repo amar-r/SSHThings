@@ -1,6 +1,6 @@
 project:
-  name: DOIT
-  description: Personal blog site for Amar to document homelab projects, automation experiments, and other technical ramblings.
+  name: sshthings
+  description: A self-hosting and homelab blog built by Amar
   goals:
     - Build a static blog using React and Tailwind CSS
     - Publish Markdown-based posts
@@ -18,7 +18,7 @@ tech_stack:
     use_github_actions: true
     output_directory: dist
     branch: gh-pages
-    custom_domain: amardoesthings.com
+    custom_domain: sshthings.com
 
 features:
   - blog

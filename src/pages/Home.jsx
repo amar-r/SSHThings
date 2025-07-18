@@ -25,12 +25,12 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>DOIT - Docs Of Interesting Things</title>
-        <meta name="description" content="Amar's personal blog about homelab projects, automation experiments, and random interesting things." />
-        <meta property="og:title" content="DOIT - Docs Of Interesting Things" />
-        <meta property="og:description" content="Amar's personal blog about homelab projects, automation experiments, and random interesting things." />
+        <title>sshthings</title>
+        <meta name="description" content="Amar's blog about self-hosting, automation, and infrastructure experiments." />
+        <meta property="og:title" content="sshthings" />
+        <meta property="og:description" content="Amar's blog about self-hosting, automation, and infrastructure experiments." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://amardoesthings.com" />
+        <meta property="og:url" content="https://sshthings.com" />
       </Helmet>
 
       <div className="min-h-screen">
@@ -42,19 +42,19 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6"
+                className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6"
               >
                 Welcome to{' '}
-                <span className="text-primary-600 dark:text-primary-400">DOIT</span>
+                <span className="text-primary-600 dark:text-primary-400">sshthings</span>
               </motion.h1>
               
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto"
+                className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl"
               >
-                Docs Of Interesting Things by Amar
+                A blog about self-hosting, automation, and infrastructure experiments
               </motion.p>
               
               <motion.p

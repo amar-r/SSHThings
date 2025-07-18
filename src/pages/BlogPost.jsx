@@ -63,12 +63,12 @@ const BlogPost = () => {
   return (
     <>
       <Helmet>
-        <title>{post.title} - DOIT</title>
+        <title>{post.title} - sshthings</title>
         <meta name="description" content={post.excerpt} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />
         <meta property="og:type" content="article" />
-        <meta property="og:url" content={`https://amardoesthings.com/blog/${post.slug}`} />
+        <meta property="og:url" content={`https://sshthings.com/blog/${post.slug}`} />
         {post.image && <meta property="og:image" content={post.image} />}
         <meta property="article:published_time" content={post.date} />
         {post.tags && post.tags.map(tag => (

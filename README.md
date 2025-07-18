@@ -1,6 +1,6 @@
-# DOIT - Docs Of Interesting Things
+# sshthings
 
-A modern personal blog built with React, Vite, and Tailwind CSS. This blog serves as a platform for sharing homelab projects, automation experiments, and technical insights.
+A modern personal blog built with React, Vite, and Tailwind CSS. This blog serves as a platform for sharing self-hosting projects, automation experiments, and infrastructure insights.
 
 ## 🚀 Features
 
@@ -27,8 +27,8 @@ A modern personal blog built with React, Vite, and Tailwind CSS. This blog serve
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/DOIT.git
-   cd DOIT
+   git clone https://github.com/yourusername/sshthings.git
+   cd sshthings
    ```
 
 2. **Install dependencies**
@@ -66,12 +66,12 @@ This project is configured for automatic deployment to GitHub Pages:
 
 1. **Push to main branch** - GitHub Actions will automatically build and deploy
 2. **Enable GitHub Pages** in your repository settings
-3. **Set custom domain** (optional) - configure `amardoesthings.com` in repository settings
+3. **Set custom domain** (optional) - configure `sshthings.com` in repository settings
 
 ## 📁 Project Structure
 
 ```
-DOIT/
+sshthings/
 ├── src/
 │   ├── components/     # Reusable React components
 │   ├── pages/         # Page components
@@ -122,7 +122,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 If you have any questions or need help, feel free to:
 - Open an issue on GitHub
-- Contact me through the [Contact page](https://amardoesthings.com/contact)
+- Contact me through the [Contact page](https://sshthings.com/contact)
 
 ---
 

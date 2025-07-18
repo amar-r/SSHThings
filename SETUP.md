@@ -1,4 +1,4 @@
-# DOIT Blog Setup Guide
+# sshthings Blog Setup Guide
 
 ## 🎉 Congratulations! Your blog is ready.
 
@@ -95,7 +95,7 @@ git push origin main
 
 ### 3. Custom Domain (Optional)
 1. In repository settings → Pages
-2. Add your custom domain: `amardoesthings.com`
+2. Add your custom domain: `sshthings.com`
 3. Update DNS records as instructed
 
 ## 🔧 Development Workflow
@@ -116,7 +116,7 @@ npm run lint   # Run ESLint
 
 ## 📁 Project Structure
 ```
-DOIT/
+sshthings/
 ├── src/
 │   ├── components/     # React components
 │   ├── pages/         # Page components
@@ -145,4 +145,4 @@ DOIT/
 
 ---
 
-**Your DOIT blog is ready to go! 🚀** 
+**Your sshthings blog is ready to go! 🚀** 

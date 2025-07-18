@@ -1,53 +1,39 @@
 ---
-title: "Welcome to DOIT - My First Blog Post"
+title: "Welcome to sshthings - My First Blog Post"
 date: "2024-01-15"
-excerpt: "An introduction to my personal blog where I'll be sharing homelab projects, automation experiments, and technical insights."
-tags: ["introduction", "blog", "homelab"]
-readTime: 3
+excerpt: "An introduction to my personal blog where I'll be sharing self-hosting projects, automation experiments, and infrastructure insights."
+tags: ["welcome", "introduction", "self-hosting"]
+readTime: 5
 ---
 
-# Welcome to DOIT - My First Blog Post
+# Welcome to sshthings - My First Blog Post
 
-Hello and welcome to **DOIT** - Docs Of Interesting Things! This is my personal blog where I'll be sharing my journey through technology, homelab projects, and automation experiments.
+Hello and welcome to **sshthings**! This is my personal blog where I'll be sharing my journey through self-hosting, infrastructure automation, and technology experiments.
 
 ## What to Expect
 
 This blog will cover a variety of topics including:
 
-- **Homelab Projects**: Server setups, networking configurations, and infrastructure management
-- **Automation**: Scripts, tools, and workflows that make life easier
-- **Technical Insights**: Lessons learned from real-world projects and experiments
-- **Tutorials**: Step-by-step guides for common tasks and setups
+- **Self-Hosting Projects**: Docker containers, Kubernetes clusters, and home server setups
+- **Infrastructure Automation**: Terraform, Ansible, and CI/CD pipelines
+- **Cloud Solutions**: AWS, Azure, and multi-cloud strategies
+- **DevOps Practices**: Monitoring, logging, and security best practices
+- **Technology Experiments**: New tools, frameworks, and methodologies
 
-## Why "DOIT"?
+## My Background
 
-The name "DOIT" stands for **Docs Of Interesting Things**. It's a simple reminder that documentation is crucial in technology, and that sharing knowledge helps everyone grow.
+I'm a Lead Systems Engineer with over 13 years of experience in cloud infrastructure, automation, and security. I've worked with various technologies and platforms, and I'm passionate about sharing knowledge and learning from the community.
+
+## Why "sshthings"?
+
+The name "sshthings" represents my focus on **self-hosting** and **infrastructure** projects. SSH (Secure Shell) is a fundamental tool for managing remote systems, and it symbolizes the technical foundation of the topics I'll be covering here.
 
 ## My Approach
 
 I believe in:
 - **Learning in Public**: Sharing both successes and failures
-- **Practical Examples**: Real code and configurations you can use
-- **Clear Documentation**: Step-by-step guides that actually work
-- **Community**: Engaging with others who share similar interests
+- **Practical Examples**: Real-world implementations and code snippets
+- **Community Focus**: Engaging with others who share similar interests
+- **Continuous Improvement**: Always exploring new technologies and approaches
 
-## Getting Started
-
-If you're new here, I recommend starting with:
-1. The [About](/about) page to learn more about me
-2. The [Blog](/blog) section to explore existing posts
-3. The [Contact](/contact) page if you want to connect
-
-## What's Next?
-
-I have several posts planned covering:
-- My homelab setup and architecture
-- Automation workflows for daily tasks
-- Infrastructure as Code examples
-- Monitoring and logging solutions
-
-Stay tuned for more content, and feel free to reach out if you have questions or suggestions!
-
----
-
-*This is just the beginning. Let's build something interesting together.* 
+Stay tuned for more content about self-hosting adventures, automation experiments, and infrastructure insights! 

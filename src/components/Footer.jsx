@@ -12,12 +12,12 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="flex items-center space-x-2 mb-4">
               <span className="text-2xl font-bold text-primary-600 dark:text-primary-400">
-                DOIT
+                sshthings
               </span>
             </Link>
             <p className="text-gray-600 dark:text-gray-400 mb-4 max-w-md">
-              Docs Of Interesting Things by Amar. A DevOps engineer's blog sharing infrastructure automation, 
-              cloud solutions, and technical insights.
+              A blog about self-hosting, automation, and infrastructure experiments by Amar. 
+              Sharing insights on DevOps, cloud solutions, and technical discoveries.
             </p>
             <div className="flex space-x-4">
               <motion.a
@@ -99,7 +99,7 @@ const Footer = () => {
 
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
           <p className="text-center text-gray-500 dark:text-gray-400 text-sm">
-            © {currentYear} DOIT - Docs Of Interesting Things. All rights reserved.
+            © {currentYear} sshthings. All rights reserved.
           </p>
         </div>
       </div>

@@ -26,10 +26,10 @@ const Header = ({ darkMode, setDarkMode }) => {
               whileHover={{ scale: 1.05 }}
               className="text-2xl font-bold text-primary-600 dark:text-primary-400"
             >
-              DOIT
+              sshthings
             </motion.div>
             <span className="text-sm text-gray-600 dark:text-gray-400 hidden sm:block">
-              Docs Of Interesting Things
+              Self-hosted projects and infrastructure ramblings
             </span>
           </Link>
 

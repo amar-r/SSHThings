@@ -7,12 +7,12 @@ const NotFound = () => {
   return (
     <>
       <Helmet>
-        <title>404 - Page Not Found | DOIT</title>
+        <title>404 - Page Not Found | sshthings</title>
         <meta name="description" content="The page you're looking for doesn't exist. Let's get you back on track." />
-        <meta property="og:title" content="404 - Page Not Found | DOIT" />
+        <meta property="og:title" content="404 - Page Not Found | sshthings" />
         <meta property="og:description" content="The page you're looking for doesn't exist. Let's get you back on track." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://amardoesthings.com/404" />
+        <meta property="og:url" content="https://sshthings.com/404" />
       </Helmet>
 
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center px-4">
