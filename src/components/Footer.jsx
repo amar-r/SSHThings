@@ -16,12 +16,12 @@ const Footer = () => {
               </span>
             </Link>
             <p className="text-gray-600 dark:text-gray-400 mb-4 max-w-md">
-              Docs Of Interesting Things by Amar. A personal blog sharing homelab projects, 
-              automation experiments, and technical ramblings.
+              Docs Of Interesting Things by Amar. A DevOps engineer's blog sharing infrastructure automation, 
+              cloud solutions, and technical insights.
             </p>
             <div className="flex space-x-4">
               <motion.a
-                href="https://github.com"
+                href="https://github.com/amar-r"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
@@ -33,7 +33,7 @@ const Footer = () => {
                 </svg>
               </motion.a>
               <motion.a
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/amar-s-r"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
@@ -95,7 +95,7 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2">
               <li>
-                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200">
+                <a href="https://amar-r.com/Amar_Rathore_Resume.pdf" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200">
                   Resume
                 </a>
               </li>

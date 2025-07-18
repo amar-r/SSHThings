@@ -7,18 +7,18 @@ const Home = () => {
   const features = [
     {
       icon: CodeBracketIcon,
-      title: 'Homelab Projects',
-      description: 'Documentation and guides for my homelab setup, including server configurations, networking, and automation.',
+      title: 'Infrastructure as Code',
+      description: 'Terraform configurations, Kubernetes manifests, and infrastructure automation patterns.',
     },
     {
       icon: ServerIcon,
-      title: 'Infrastructure',
-      description: 'Deep dives into infrastructure as code, containerization, and cloud-native technologies.',
+      title: 'Cloud Solutions',
+      description: 'AWS architecture, containerization strategies, and cloud-native development practices.',
     },
     {
       icon: WrenchScrewdriverIcon,
-      title: 'Automation',
-      description: 'Scripts, tools, and workflows that make life easier and more efficient.',
+      title: 'DevOps Automation',
+      description: 'CI/CD pipelines, monitoring setups, and operational automation workflows.',
     },
   ]
 
@@ -26,9 +26,9 @@ const Home = () => {
     <>
       <Helmet>
         <title>DOIT - Docs Of Interesting Things</title>
-        <meta name="description" content="Personal blog for homelab projects, automation experiments, and technical ramblings by Amar." />
+        <meta name="description" content="Lead Systems Engineer Amar Rathore's blog sharing infrastructure automation, cloud solutions, and technical insights from 13+ years of experience." />
         <meta property="og:title" content="DOIT - Docs Of Interesting Things" />
-        <meta property="og:description" content="Personal blog for homelab projects, automation experiments, and technical ramblings by Amar." />
+        <meta property="og:description" content="Lead Systems Engineer Amar Rathore's blog sharing infrastructure automation, cloud solutions, and technical insights from 13+ years of experience." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://amardoesthings.com" />
       </Helmet>
@@ -44,8 +44,8 @@ const Home = () => {
                 transition={{ duration: 0.6 }}
                 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6"
               >
-                Welcome to{' '}
-                <span className="text-primary-600 dark:text-primary-400">DOIT</span>
+                Hi, I'm{' '}
+                <span className="text-primary-600 dark:text-primary-400">Amar</span>
               </motion.h1>
               
               <motion.p
@@ -54,7 +54,7 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto"
               >
-                Docs Of Interesting Things by Amar
+                Lead Systems Engineer specializing in AWS Cloud, Infrastructure Automation, and Security
               </motion.p>
               
               <motion.p
@@ -63,8 +63,8 @@ const Home = () => {
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto"
               >
-                A personal blog sharing homelab projects, automation experiments, 
-                and technical ramblings from my journey in technology.
+                I've spent 13+ years building and automating infrastructure across Windows, Linux, and cloud environments. 
+                I like working with Terraform, Docker, and Python to create secure, scalable systems in AWS and Azure.
               </motion.p>
               
               <motion.div

@@ -39,13 +39,13 @@ const Contact = () => {
     {
       icon: EnvelopeIcon,
       title: 'Email',
-      value: 'amar@amardoesthings.com',
-      href: 'mailto:amar@amardoesthings.com'
+      value: 'amar@lera.dev',
+      href: 'mailto:amar@lera.dev'
     },
     {
       icon: MapPinIcon,
       title: 'Location',
-      value: 'Remote / Worldwide',
+      value: 'Remote / United States',
       href: null
     },
     {
@@ -140,7 +140,7 @@ const Contact = () => {
                 </h3>
                 <div className="flex space-x-4">
                   <motion.a
-                    href="https://github.com"
+                    href="https://github.com/amar-r"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
@@ -152,7 +152,7 @@ const Contact = () => {
                     </svg>
                   </motion.a>
                   <motion.a
-                    href="https://linkedin.com"
+                    href="https://linkedin.com/in/amar-s-r"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}

@@ -4,18 +4,18 @@ import { EnvelopeIcon, DocumentArrowDownIcon } from '@heroicons/react/24/outline
 
 const About = () => {
   const skills = [
-    { category: 'Infrastructure', items: ['Docker', 'Kubernetes', 'Terraform', 'AWS', 'Linux'] },
-    { category: 'Development', items: ['JavaScript', 'Python', 'React', 'Node.js', 'Git'] },
-    { category: 'Automation', items: ['Ansible', 'CI/CD', 'Shell Scripting', 'Monitoring', 'Logging'] },
+    { category: 'Cloud & Infrastructure', items: ['AWS', 'Azure', 'Docker', 'Terraform', 'Packer', 'Linux', 'Windows Server'] },
+    { category: 'DevOps & Automation', items: ['CI/CD', 'Jenkins', 'CodeBuild', 'PowerShell', 'Bash', 'Python', 'Power Automate'] },
+    { category: 'Monitoring & Security', items: ['Splunk', 'CloudWatch', 'SCCM/MECM', 'PKI', 'RBAC', 'IAM', 'CIS Benchmarks'] },
   ]
 
   return (
     <>
       <Helmet>
         <title>About - DOIT</title>
-        <meta name="description" content="Learn more about Amar and the DOIT blog - a personal space for sharing homelab projects and technical insights." />
+        <meta name="description" content="Learn more about Amar Rathore, Lead Systems Engineer with 13+ years of experience in AWS Cloud, Infrastructure Automation, and Security." />
         <meta property="og:title" content="About - DOIT" />
-        <meta property="og:description" content="Learn more about Amar and the DOIT blog - a personal space for sharing homelab projects and technical insights." />
+        <meta property="og:description" content="Learn more about Amar Rathore, Lead Systems Engineer with 13+ years of experience in AWS Cloud, Infrastructure Automation, and Security." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://amardoesthings.com/about" />
       </Helmet>
@@ -34,7 +34,7 @@ const About = () => {
                 About
               </h1>
               <p className="text-xl text-gray-600 dark:text-gray-300">
-                Hi, I'm Amar. Welcome to my corner of the internet.
+                Lead Systems Engineer specializing in AWS Cloud, Infrastructure Automation, and Security
               </p>
             </motion.div>
           </div>
@@ -57,22 +57,22 @@ const About = () => {
                   </span>
                 </div>
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-                  Amar
+                  Amar Rathore
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 mb-6">
-                  Technology enthusiast & automation advocate
-                </p>
+                              <p className="text-gray-600 dark:text-gray-400 mb-6">
+                Lead Systems Engineer
+              </p>
                 
                 <div className="space-y-3">
                   <a
-                    href="mailto:amar@amardoesthings.com"
+                    href="mailto:amar@lera.dev"
                     className="flex items-center justify-center w-full px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors duration-200"
                   >
                     <EnvelopeIcon className="h-4 w-4 mr-2" />
                     Get in Touch
                   </a>
                   <a
-                    href="/resume.pdf"
+                    href="https://amar-r.com/Amar_Rathore_Resume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center w-full px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 font-medium rounded-lg transition-colors duration-200"
@@ -96,20 +96,21 @@ const About = () => {
                   About Me
                 </h3>
                 <div className="prose prose-gray dark:prose-invert max-w-none">
-                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                    I'm passionate about technology and love exploring new ways to solve problems through automation and infrastructure. 
-                    My journey in tech has led me through various domains, from web development to infrastructure management, 
-                    and I'm always excited to learn and share what I discover.
-                  </p>
-                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                    This blog, DOIT (Docs Of Interesting Things), serves as my digital garden where I document homelab projects, 
-                    automation experiments, and technical insights. It's a space for me to share knowledge, learn in public, 
-                    and connect with others who share similar interests.
-                  </p>
-                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                    When I'm not tinkering with servers or writing code, you can find me exploring new technologies, 
-                    contributing to open-source projects, or sharing knowledge with the community.
-                  </p>
+                                     <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                     I've spent 13+ years building and automating infrastructure across Windows, Linux, and cloud environments. 
+                     I like working with Terraform, Docker, and Python to create secure, scalable systems in AWS and Azure. 
+                     My focus is helping teams modernize, simplify, and move faster.
+                   </p>
+                   <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                     This blog, DOIT (Docs Of Interesting Things), serves as my digital garden where I document homelab projects, 
+                     automation experiments, and technical insights. It's a space for me to share knowledge, learn in public, 
+                     and connect with others who share similar interests in DevOps and infrastructure.
+                   </p>
+                   <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                     Outside of work, I maintain a personal homelab with 20+ Docker containers, pfSense for firewalling, 
+                     and Pi-hole for DNS filtering. I'm passionate about experimenting with cloud-native tools, 
+                     streamlining workflows, and learning by building.
+                   </p>
                 </div>
               </div>
 
