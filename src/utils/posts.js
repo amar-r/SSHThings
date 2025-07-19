@@ -5,11 +5,11 @@ export const posts = [
   {
     slug: 'first-post',
     title: 'Welcome to SSHthings - My First Blog Post',
-    date: '2024-01-15',
-    excerpt: 'An introduction to my personal blog where I\'ll be sharing self-hosting projects, automation experiments, and infrastructure insights.',
+    date: '2025-07-17',
+    excerpt: 'An introduction to SSHthings (Self-Service Homelab) - my personal blog where I\'ll be sharing self-hosting projects, automation experiments, and infrastructure insights.',
     content: `# Welcome to SSHthings - My First Blog Post
 
-Hello and welcome to **SSHthings**! This is my personal blog where I'll be sharing my journey through self-hosting, infrastructure automation, and technology experiments.
+Hello and welcome to **SSHthings** (Self-Service Homelab)! This is my personal blog where I'll be sharing my journey through self-hosting, infrastructure automation, and technology experiments.
 
 ## What to Expect
 
@@ -27,7 +27,7 @@ I'm a Lead Systems Engineer with over 13 years of experience in cloud infrastruc
 
 ## Why "SSHthings"?
 
-The name "SSHthings" represents my focus on **self-hosting** and **infrastructure** projects. SSH (Secure Shell) is a fundamental tool for managing remote systems, and it symbolizes the technical foundation of the topics I'll be covering here.
+The name "SSHthings" represents my focus on **self-hosting** and **infrastructure** projects. SSH stands for **Self-Service Homelab**, reflecting my approach to building and managing my own homelab infrastructure. SSH (Secure Shell) is also a fundamental tool for managing remote systems, and it symbolizes the technical foundation of the topics I'll be covering here.
 
 ## My Approach
 
