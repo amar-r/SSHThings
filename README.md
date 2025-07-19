@@ -27,7 +27,7 @@ A modern personal blog built with React, Vite, and Tailwind CSS. This blog serve
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/sshthings.git
+   git clone https://github.com/amar-r/sshthings.git
    cd sshthings
    ```
 
