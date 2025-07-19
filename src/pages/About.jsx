@@ -17,9 +17,9 @@ const About = () => {
   return (
     <>
       <Helmet>
-        <title>About - sshthings</title>
+        <title>About - SSHthings</title>
         <meta name="description" content="Learn more about Amar Rathore, Lead Systems Engineer with 13+ years of experience in AWS Cloud, Infrastructure Automation, and Security." />
-        <meta property="og:title" content="About - sshthings" />
+        <meta property="og:title" content="About - SSHthings" />
         <meta property="og:description" content="Learn more about Amar Rathore, Lead Systems Engineer with 13+ years of experience in AWS Cloud, Infrastructure Automation, and Security." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://sshthings.com/about" />

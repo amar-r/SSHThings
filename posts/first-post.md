@@ -1,14 +1,14 @@
 ---
-title: "Welcome to sshthings - My First Blog Post"
+title: "Welcome to SSHthings - My First Blog Post"
 date: "2024-01-15"
-excerpt: "An introduction to sshthings (Self-Service Homelab) - my personal blog where I'll be sharing self-hosting projects, automation experiments, and infrastructure insights."
+excerpt: "An introduction to SSHthings (Self-Service Homelab) - my personal blog where I'll be sharing self-hosting projects, automation experiments, and infrastructure insights."
 tags: ["welcome", "introduction", "self-hosting"]
 readTime: 5
 ---
 
-# Welcome to sshthings - My First Blog Post
+# Welcome to SSHthings - My First Blog Post
 
-Hello and welcome to **sshthings** (Self-Service Homelab)! This is my personal blog where I'll be sharing my journey through self-hosting, infrastructure automation, and technology experiments.
+Hello and welcome to **SSHthings** (Self-Service Homelab)! This is my personal blog where I'll be sharing my journey through self-hosting, infrastructure automation, and technology experiments.
 
 ## What to Expect
 
@@ -24,9 +24,9 @@ This blog will cover a variety of topics including:
 
 I'm a Lead Systems Engineer with over 13 years of experience in cloud infrastructure, automation, and security. I've worked with various technologies and platforms, and I'm passionate about sharing knowledge and learning from the community.
 
-## Why "sshthings"?
+## Why "SSHthings"?
 
-The name "sshthings" represents my focus on **self-hosting** and **infrastructure** projects. SSH stands for **Self-Service Homelab**, reflecting my approach to building and managing my own homelab infrastructure. SSH (Secure Shell) is also a fundamental tool for managing remote systems, and it symbolizes the technical foundation of the topics I'll be covering here.
+The name "SSHthings" represents my focus on **self-hosting** and **infrastructure** projects. SSH stands for **Self-Service Homelab**, reflecting my approach to building and managing my own homelab infrastructure. SSH (Secure Shell) is also a fundamental tool for managing remote systems, and it symbolizes the technical foundation of the topics I'll be covering here.
 
 ## My Approach
 

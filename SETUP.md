@@ -1,4 +1,4 @@
-# sshthings Blog Setup Guide
+# SSHthings Blog Setup Guide
 
 ## 🎉 Congratulations! Your blog is ready.
 
@@ -116,7 +116,7 @@ npm run lint   # Run ESLint
 
 ## 📁 Project Structure
 ```
-sshthings/
+SSHthings/
 ├── src/
 │   ├── components/     # React components
 │   ├── pages/         # Page components
@@ -145,4 +145,4 @@ sshthings/
 
 ---
 
-**Your sshthings blog is ready to go! 🚀** 
+**Your SSHthings blog is ready to go! 🚀** 

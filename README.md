@@ -1,4 +1,4 @@
-# sshthings
+# SSHthings
 
 A modern personal blog built with React, Vite, and Tailwind CSS. This blog serves as a platform for sharing self-hosting projects, automation experiments, and infrastructure insights.
 
@@ -71,7 +71,7 @@ This project is configured for automatic deployment to GitHub Pages:
 ## 📁 Project Structure
 
 ```
-sshthings/
+SSHthings/
 ├── src/
 │   ├── components/     # Reusable React components
 │   ├── pages/         # Page components

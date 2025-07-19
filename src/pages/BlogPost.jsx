@@ -63,7 +63,7 @@ const BlogPost = () => {
   return (
     <>
       <Helmet>
-        <title>{post.title} - sshthings</title>
+        <title>{post.title} - SSHthings</title>
         <meta name="description" content={post.excerpt} />
         <meta property="og:title" content={post.title} />
         <meta property="og:description" content={post.excerpt} />

@@ -1,5 +1,5 @@
 project:
-  name: sshthings
+  name: SSHthings
   description: A self-hosting and homelab blog built by Amar
   goals:
     - Build a static blog using React and Tailwind CSS

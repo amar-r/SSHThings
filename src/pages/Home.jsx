@@ -25,9 +25,9 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>sshthings</title>
+        <title>SSHthings</title>
         <meta name="description" content="Amar's blog about self-hosting, automation, and infrastructure experiments." />
-        <meta property="og:title" content="sshthings" />
+        <meta property="og:title" content="SSHthings" />
         <meta property="og:description" content="Amar's blog about self-hosting, automation, and infrastructure experiments." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://sshthings.com" />

@@ -63,10 +63,10 @@ const Blog = () => {
   return (
     <>
       <Helmet>
-        <title>Blog - sshthings</title>
-        <meta name="description" content="Read about self-hosting projects, automation experiments, and infrastructure insights on the sshthings blog." />
-        <meta property="og:title" content="Blog - sshthings" />
-        <meta property="og:description" content="Read about self-hosting projects, automation experiments, and infrastructure insights on the sshthings blog." />
+        <title>Blog - SSHthings</title>
+        <meta name="description" content="Read about self-hosting projects, automation experiments, and infrastructure insights on the SSHthings blog." />
+        <meta property="og:title" content="Blog - SSHthings" />
+        <meta property="og:description" content="Read about self-hosting projects, automation experiments, and infrastructure insights on the SSHthings blog." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://sshthings.com/blog" />
       </Helmet>

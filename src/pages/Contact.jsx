@@ -33,9 +33,9 @@ const Contact = () => {
   return (
     <>
       <Helmet>
-        <title>Contact - sshthings</title>
+        <title>Contact - SSHthings</title>
         <meta name="description" content="Get in touch with Amar. I'm always open to discussing new opportunities, collaborations, or just chatting about technology." />
-        <meta property="og:title" content="Contact - sshthings" />
+        <meta property="og:title" content="Contact - SSHthings" />
         <meta property="og:description" content="Get in touch with Amar. I'm always open to discussing new opportunities, collaborations, or just chatting about technology." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://sshthings.com/contact" />
