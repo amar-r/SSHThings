@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { SunIcon, MoonIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 
-const Header = ({ darkMode, setDarkMode }) => {
+const Header = ({ darkMode, setDarkMode, onResetToSystem }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const location = useLocation()
 
@@ -15,6 +15,15 @@ const Header = ({ darkMode, setDarkMode }) => {
   ]
 
   const isActive = (path) => location.pathname === path
+
+  const handleDarkModeToggle = () => {
+    setDarkMode(!darkMode)
+  }
+
+  const handleResetToSystem = (e) => {
+    e.preventDefault()
+    onResetToSystem()
+  }
 
   return (
     <header className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
@@ -54,9 +63,11 @@ const Header = ({ darkMode, setDarkMode }) => {
           {/* Dark Mode Toggle & Mobile Menu Button */}
           <div className="flex items-center space-x-4">
             <button
-              onClick={() => setDarkMode(!darkMode)}
+              onClick={handleDarkModeToggle}
+              onContextMenu={handleResetToSystem}
               className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200"
-              aria-label="Toggle dark mode"
+              aria-label="Toggle dark mode (right-click to reset to system preference)"
+              title="Left-click: Toggle | Right-click: Reset to system preference"
             >
               {darkMode ? (
                 <SunIcon className="h-5 w-5" />
