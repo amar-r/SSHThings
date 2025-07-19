@@ -11,8 +11,9 @@ const Footer = () => {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <Link to="/" className="flex items-center space-x-2 mb-4">
-              <span className="text-2xl font-bold text-primary-600 dark:text-primary-400">
-                sshthings
+              <span className="text-2xl font-bold inline-flex items-baseline">
+                <span className="font-bold text-primary-600 dark:text-primary-400">SSH</span>
+                <span className="font-normal text-primary-600 dark:text-primary-400">things</span>
               </span>
             </Link>
             <p className="text-gray-600 dark:text-gray-400 mb-4 max-w-md">

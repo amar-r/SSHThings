@@ -101,7 +101,7 @@ const About = () => {
                      It's completely separate from my professional work - just stuff I find interesting and want to share.
                    </p>
                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                     This blog, sshthings, serves as my digital garden where I document self-hosting projects, 
+                     This blog, <span className="inline-flex items-baseline"><span className="font-bold text-primary-600 dark:text-primary-400">SSH</span><span className="font-normal text-primary-600 dark:text-primary-400">things</span></span> (Self-Service Homelab), serves as my digital garden where I document self-hosting projects, 
                      automation experiments, and whatever else catches my interest. It's a space for me to share knowledge,
                      learnings, and experiences from my journey in technology.
                    </p>

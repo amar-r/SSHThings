@@ -37,22 +37,34 @@ const Home = () => {
         {/* Hero Section */}
         <section className="relative bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-20 lg:py-32">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center">
+            <div className="text-center flex flex-col items-center justify-center">
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6"
+                className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4 text-center"
               >
                 Welcome to{' '}
-                <span className="text-primary-600 dark:text-primary-400">sshthings</span>
+                <span className="inline-flex items-baseline">
+                  <span className="font-bold text-primary-600 dark:text-primary-400">SSH</span>
+                  <span className="font-normal text-primary-600 dark:text-primary-400">things</span>
+                </span>
               </motion.h1>
               
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-lg md:text-xl text-gray-500 dark:text-gray-400 mb-6 text-center italic"
+              >
+                Self-Service Homelab
+              </motion.p>
+              
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl"
+                className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto text-center"
               >
                 A blog about self-hosting, automation, and infrastructure experiments
               </motion.p>
@@ -61,7 +73,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto"
+                className="text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto text-center"
               >
                 A personal blog about homelab projects, automation experiments, 
                 and random interesting things I'm working on.
@@ -94,11 +106,11 @@ const Home = () => {
         {/* Features Section */}
         <section className="py-20 bg-white dark:bg-gray-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+            <div className="text-center mb-16 flex flex-col items-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 text-center">
                 What I Write About
               </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-center">
                 From homelab adventures to lawn care automation, here's what I'm working on.
               </p>
             </div>
@@ -127,11 +139,11 @@ const Home = () => {
 
         {/* CTA Section */}
         <section className="py-20 bg-primary-600 dark:bg-primary-700">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">
               Ready to Explore?
             </h2>
-            <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto text-center">
               Dive into my latest posts and discover interesting projects, 
               automation experiments, and random things I'm building.
             </p>

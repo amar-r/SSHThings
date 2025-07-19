@@ -24,12 +24,13 @@ const Header = ({ darkMode, setDarkMode }) => {
           <Link to="/" className="flex items-center space-x-2">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold text-primary-600 dark:text-primary-400"
+              className="text-2xl font-bold inline-flex items-baseline"
             >
-              sshthings
+              <span className="font-bold text-primary-600 dark:text-primary-400">SSH</span>
+              <span className="font-normal text-primary-600 dark:text-primary-400">things</span>
             </motion.div>
             <span className="text-sm text-gray-600 dark:text-gray-400 hidden sm:block">
-              Self-hosted projects and infrastructure ramblings
+              Self-Service Homelab
             </span>
           </Link>
 
