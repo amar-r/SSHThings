@@ -4,34 +4,55 @@ This guide explains how to create and manage blog posts for the SSHthings websit
 
 ## Quick Start
 
-To create a new blog post, you only need to:
-1. Create a markdown file in the `/posts/` directory
-2. Add frontmatter with metadata
-3. Write your content in markdown
+To create a new blog post, you need to:
+1. Write your content in markdown format
+2. Add a new post object to `src/utils/posts.js`
+3. Include title, date, excerpt, content, tags, and readTime
 4. Save the file
 
-That's it! The system automatically picks up new posts.
+The system will automatically process your new post.
 
 ## File Structure
 
 ```
 SSHThings/
-├── posts/
-│   ├── first-post.md          # Your first blog post
-│   ├── my-new-post.md         # New blog post
-│   └── another-post.md        # Another blog post
 └── src/
     └── utils/
-        └── posts.js           # Automatically reads all .md files
+        └── posts.js           # Contains all blog post data
 ```
 
 ## Creating a New Blog Post
 
-### Step 1: Create the Markdown File
+### Step 1: Add a New Post Object
 
-Create a new `.md` file in the `/posts/` directory. The filename becomes the URL slug.
+Add a new post object to the `posts` array in `src/utils/posts.js`:
 
-**Example:** `posts/my-docker-setup.md` → URL: `/blog/my-docker-setup`
+```javascript
+export const posts = [
+  {
+    slug: 'first-post',
+    title: 'Welcome to SSHthings - My First Blog Post',
+    date: '2025-07-17',
+    excerpt: 'An introduction to SSHthings...',
+    content: `# Your markdown content here...`,
+    tags: ['welcome', 'introduction', 'self-hosting'],
+    readTime: 5,
+    image: null
+  },
+  {
+    slug: 'my-docker-setup',
+    title: 'Setting Up a Home Server with Docker',
+    date: '2025-07-19',
+    excerpt: 'A complete guide to setting up your own home server using Docker containers.',
+    content: `# Setting Up a Home Server with Docker
+
+Your markdown content here...`,
+    tags: ['docker', 'self-hosting', 'tutorial'],
+    readTime: 8,
+    image: null
+  }
+]
+```
 
 ### Step 2: Add Frontmatter
 

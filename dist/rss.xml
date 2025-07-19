@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>sshthings</title>
+    <title>SSHthings</title>
     <description>A blog about self-hosting, automation, and infrastructure experiments</description>
     <link>https://sshthings.com</link>
     <atom:link href="https://sshthings.com/rss.xml" rel="self" type="application/rss+xml" />
@@ -9,7 +9,7 @@
     <lastBuildDate>Mon, 15 Jan 2024 12:00:00 GMT</lastBuildDate>
     
     <item>
-      <title>Welcome to sshthings - My First Blog Post</title>
+      <title>Welcome to SSHthings - My First Blog Post</title>
       <description>An introduction to my personal blog where I'll be sharing self-hosting projects, automation experiments, and infrastructure insights.</description>
       <link>https://sshthings.com/blog/first-post</link>
       <guid>https://sshthings.com/blog/first-post</guid>
