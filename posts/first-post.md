@@ -1,6 +1,6 @@
 ---
 title: "Welcome to SSHthings - My First Blog Post"
-date: "2024-01-15"
+date: "2025-07-17"
 excerpt: "An introduction to SSHthings (Self-Service Homelab) - my personal blog where I'll be sharing self-hosting projects, automation experiments, and infrastructure insights."
 tags: ["welcome", "introduction", "self-hosting"]
 readTime: 5
