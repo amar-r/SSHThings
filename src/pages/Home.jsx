@@ -18,7 +18,7 @@ const Home = () => {
     {
       icon: WrenchScrewdriverIcon,
       title: 'Random Projects',
-      description: 'From lawn care automation to whatever interesting things I\'m tinkering with.',
+      description: 'Various interesting things I\'m tinkering with.',
     },
   ]
 
@@ -111,7 +111,7 @@ const Home = () => {
                 What I Write About
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-center">
-                From homelab adventures to lawn care automation, here's what I'm working on.
+                From homelab adventures to various automation projects, here's what I'm working on.
               </p>
             </div>
             

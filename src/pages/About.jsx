@@ -10,7 +10,7 @@ const About = () => {
 
   const skills = [
     { category: 'Homelab Tech', items: ['Docker', 'Ubuntu', 'pfSense', 'Pi-hole', 'Self-hosted Services', 'Home Automation'] },
-    { category: 'Personal Projects', items: ['Python', 'Bash', 'Automation Scripts', 'IoT Projects', 'Lawn Care Automation'] },
+    { category: 'Personal Projects', items: ['Python', 'Bash', 'Automation Scripts', 'IoT Projects', 'Home Automation'] },
     { category: 'Learning & Experimenting', items: ['New Technologies', 'Open Source', 'DIY Projects', 'Random Automation'] },
   ]
 
@@ -112,7 +112,7 @@ const About = () => {
                    </p>
                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                      I maintain a personal homelab with 20+ Docker containers, pfSense for firewalling, 
-                     and Pi-hole for DNS filtering. I'm also working on lawn care automation and other random projects. 
+                     and Pi-hole for DNS filtering. I'm also working on various automation projects and other random things. 
                      This is where I document all of that.
                    </p>
                 </div>
