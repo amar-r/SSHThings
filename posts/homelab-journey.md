@@ -1,11 +1,12 @@
-// Simplified blog system that works reliably
-export const posts = [
-  {
-    slug: 'homelab-journey',
-    title: 'My Homelab Journey: From Baby Cam to 30+ Containers',
-    date: '2025-01-18',
-    excerpt: 'What started with basic COVID-era family needs grew into a comprehensive homelab with monitoring, automation, and infrastructure that just works. Here\'s how I accidentally learned DevOps along the way.',
-    content: `# My Homelab Journey: From Baby Cam to 30+ Containers
+---
+title: "My Homelab Journey: From Baby Cam to 30+ Containers"
+date: "2025-01-18"
+excerpt: "What started with basic COVID-era family needs grew into a comprehensive homelab with monitoring, automation, and infrastructure that just works. Here's how I accidentally learned DevOps along the way."
+tags: ["homelab", "self-hosting", "monitoring", "automation", "family-tech", "infrastructure"]
+readTime: 7
+---
+
+# My Homelab Journey: From Baby Cam to 30+ Containers
 
 ## Introduction
 
@@ -32,13 +33,13 @@ What started as a Raspberry Pi with a camera module has grown into this AMD Ryze
 ### How I Finally Got Organized
 After months of containers scattered everywhere (and constantly forgetting what was running where), I learned to organize things properly:
 
-\`\`\`
+```
 infrastructure/
 ├── monitoring/     # All the Prometheus/Grafana goodness
 ├── proxy/         # Future home for reverse proxy setup
 ├── core/          # Essential services that keep things running
 └── applications/  # The fun stuff (media, home automation, etc.)
-\`\`\`
+```
 
 This organization thing? Turns out there's actually a method to the madness that makes everything so much easier to manage!
 
@@ -63,7 +64,7 @@ The underlying architecture principles are solid - containerized services, prope
 ## The Great Shell Script Disaster (And How Makefiles Saved Me)
 
 ### My Shameful Shell Script Collection
-Let me confess something embarrassing. Before I discovered Makefiles, I had a handful of shell scripts with names like \`start_monitoring.sh\`, \`restart_media_stack.sh\`, and my personal favorite, \`fix_the_thing_that_broke_again.sh\`.
+Let me confess something embarrassing. Before I discovered Makefiles, I had a handful of shell scripts with names like `start_monitoring.sh`, `restart_media_stack.sh`, and my personal favorite, `fix_the_thing_that_broke_again.sh`.
 
 Each script was a unique snowflake of hardcoded paths, zero error handling, and inconsistent formatting. Want to restart the monitoring stack? Good luck remembering which of the 5 scripts does that, in what order, and whether you remembered to set the right environment variables first.
 
@@ -72,18 +73,18 @@ My family learned not to ask me to fix streaming issues during dinner because it
 ### The Makefile Enlightenment
 Then I discovered Makefiles, and my entire operational life changed. What used to be this chaotic mess:
 
-\`\`\`bash
+```bash
 # Pray this works...
 ./scripts/stop_monitoring.sh
 ./scripts/backup_prometheus_data.sh  
 ./scripts/start_monitoring.sh
 ./scripts/verify_grafana.sh
 # Now cross fingers and hope nothing broke
-\`\`\`
+```
 
 Became this elegant solution:
 
-\`\`\`makefile
+```makefile
 restart-monitoring: stop-monitoring backup-prometheus start-monitoring verify-grafana
 	@echo "Monitoring stack restarted successfully"
 
@@ -92,14 +93,14 @@ stop-monitoring:
 
 start-monitoring:
 	docker-compose -f monitoring/docker-compose.yml up -d
-\`\`\`
+```
 
 Suddenly I had dependencies, parallel execution, consistent formatting, and actual error handling. It was like discovering civilization after years of digital barbarism.
 
 ### The Unexpected Discipline
 The Makefile didn't just organize my commands - it forced me into better operational practices without realizing it. Every change gets documented in code, deployments become repeatable, and I stopped breaking things because I forgot a step.
 
-My family noticed the difference when "fix the streaming" went from a 30-minute debugging session to a simple \`make restart-media\` command. Turns out, proper operational practices benefit everyone in the household.
+My family noticed the difference when "fix the streaming" went from a 30-minute debugging session to a simple `make restart-media` command. Turns out, proper operational practices benefit everyone in the household.
 
 ## What I Accidentally Learned Along the Way
 
@@ -136,7 +137,7 @@ That weird workaround you implemented during a late-night debugging session? Wri
 
 ## How It's Actually Working
 
-The system runs surprisingly well for something built by someone who once brought down production because I forgot a \`WHERE\` clause:
+The system runs surprisingly well for something built by someone who once brought down production because I forgot a `WHERE` clause:
 
 - **Family happiness**: High - streaming just works, lights turn on when they should
 - **Uptime**: Core services running 2+ months without me touching them
@@ -148,7 +149,7 @@ Most importantly, I can confidently add new services, troubleshoot issues system
 
 ## The Unexpected Benefits
 
-What started as a simple family media server turned into the best hands-on learning experience I could have asked for. I've accidentally learned production monitoring, proper deployment practices, infrastructure automation, and operational discipline that directly applies to enterprise environments.
+What started as simple family tech needs turned into the best hands-on learning experience I could have asked for. I've accidentally learned proper monitoring, deployment practices, infrastructure automation, and operational discipline that applies everywhere.
 
 The best part? When I talk about my experience with Prometheus and Grafana, I can share real stories - like the time I debugged a memory leak at 3 AM using custom metrics, or how I set up alerting that actually works without being annoying.
 
@@ -161,67 +162,10 @@ The best part? When I talk about my experience with Prometheus and Grafana, I ca
 
 ## Want to Try This Yourself?
 
-Start simple. Deploy one service, add some basic monitoring, write a Makefile for deployment. Break things, fix them, document what you learned. 
+Start simple. Deploy one service, add some basic monitoring, write a Makefile for deployment. Break things, fix them, document what you learned.
 
 Your family will appreciate the reliable services, and you might accidentally learn some valuable skills along the way. Plus, there's something deeply satisfying about infrastructure that just works.
 
 ---
 
-*What started in 2021 with a Raspberry Pi baby cam and some basic home automation has evolved into a comprehensive homelab that runs my entire digital life. Three years later, the baby cam never goes offline, the network actually makes sense, and I accidentally learned proper infrastructure practices along the way.*`,
-    tags: ['homelab', 'self-hosting', 'monitoring', 'automation', 'family-tech', 'infrastructure'],
-    readTime: 7,
-    image: null
-  },
-  {
-    slug: 'first-post',
-    title: 'Welcome to SSHthings - My First Blog Post',
-    date: '2025-07-17',
-    excerpt: 'An introduction to SSHthings (Self-Service Homelab) - my personal blog where I\'ll be sharing self-hosting projects, automation experiments, and infrastructure insights.',
-    content: `# Welcome to SSHthings - My First Blog Post
-
-Hello and welcome to **SSHthings** (Self-Service Homelab)! This is my personal blog where I'll be sharing my journey through self-hosting, infrastructure automation, and technology experiments.
-
-## What to Expect
-
-This blog will cover a variety of topics including:
-
-- **Self-Hosting Projects**: Docker containers, Kubernetes clusters, and home server setups
-- **Infrastructure Automation**: Terraform, Ansible, and CI/CD pipelines
-- **Cloud Solutions**: AWS, Azure, and multi-cloud strategies
-- **DevOps Practices**: Monitoring, logging, and security best practices
-- **Technology Experiments**: New tools, frameworks, and methodologies
-
-## My Background
-
-I'm a Lead Systems Engineer with over 13 years of experience in cloud infrastructure, automation, and security. I've worked with various technologies and platforms, and I'm passionate about sharing knowledge and learning from the community.
-
-## Why "SSHthings"?
-
-The name "SSHthings" represents my focus on **self-hosting** and **infrastructure** projects. SSH stands for **Self-Service Homelab**, reflecting my approach to building and managing my own homelab infrastructure. SSH (Secure Shell) is also a fundamental tool for managing remote systems, and it symbolizes the technical foundation of the topics I'll be covering here.
-
-## My Approach
-
-I believe in:
-- **Learning in Public**: Sharing both successes and failures
-- **Practical Examples**: Real-world implementations and code snippets
-- **Community Focus**: Engaging with others who share similar interests
-- **Continuous Improvement**: Always exploring new technologies and approaches
-
-Stay tuned for more content about self-hosting adventures, automation experiments, and infrastructure insights!`,
-    tags: ['welcome', 'introduction', 'self-hosting'],
-    readTime: 5,
-    image: null
-  }
-]
-
-export const getPostBySlug = (slug) => {
-  return posts.find(post => post.slug === slug)
-}
-
-export const getAllPosts = () => {
-  return posts
-}
-
-export const getPostsByTag = (tag) => {
-  return posts.filter(post => post.tags.includes(tag))
-} 
+*What started in 2021 with a Raspberry Pi baby cam and some basic home automation has evolved into a comprehensive homelab that runs my entire digital life. Three years later, the baby cam never goes offline, the network actually makes sense, and I accidentally learned proper infrastructure practices along the way.* 
