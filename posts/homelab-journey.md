@@ -1,6 +1,6 @@
 ---
 title: "My Homelab Journey: From Baby Cam to 30+ Containers"
-date: "2025-01-18"
+date: "2025-07-21"
 excerpt: "What started with basic COVID-era family needs grew into a comprehensive homelab with monitoring, automation, and infrastructure that just works. Here's how I accidentally learned DevOps along the way."
 tags: ["homelab", "self-hosting", "monitoring", "automation", "family-tech", "infrastructure"]
 readTime: 7
