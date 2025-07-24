@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <footer className="border-t border-dos-green bg-dos-black mt-8">
-      <div className="max-w-6xl mx-auto px-4 py-4">
+    <footer className="border-t border-console-gray-light bg-console-bg mt-16">
+      <div className="max-w-6xl mx-auto px-4 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="text-dos-green-dim text-sm font-dos">
-            © 2024 SSHTHINGS.COM - ALL RIGHTS RESERVED
+          <div className="text-console-gray-dim text-sm font-mono">
+            © 2024 sshthings.com
           </div>
           
           <div className="flex space-x-6 mt-4 md:mt-0">
@@ -14,15 +14,15 @@ const Footer = () => {
               href="https://github.com/yourusername"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-dos-green-dim hover:text-dos-green text-sm font-dos"
+              className="console-link text-sm font-mono"
             >
-              GITHUB
+              github
             </a>
-            <Link to="/about" className="text-dos-green-dim hover:text-dos-green text-sm font-dos">
-              ABOUT
+            <Link to="/about" className="console-link text-sm font-mono">
+              about
             </Link>
-            <Link to="/blog" className="text-dos-green-dim hover:text-dos-green text-sm font-dos">
-              BLOG
+            <Link to="/blog" className="console-link text-sm font-mono">
+              blog
             </Link>
           </div>
         </div>

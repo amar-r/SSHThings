@@ -15,11 +15,13 @@ const MarkdownRenderer = ({ content }) => {
                 language={match[1]}
                 PreTag="div"
                 customStyle={{
-                  backgroundColor: '#1A1A1A',
-                  border: '1px solid #90EE90',
-                  color: '#90EE90',
-                  fontFamily: 'Courier New, Courier, monospace',
-                  fontSize: '12px',
+                  backgroundColor: '#161B22',
+                  border: '1px solid #30363D',
+                  borderRadius: '0.5rem',
+                  color: '#7EE787',
+                  fontFamily: 'JetBrains Mono, Fira Code, monospace',
+                  fontSize: '14px',
+                  padding: '1rem',
                 }}
                 {...props}
               >
@@ -32,53 +34,59 @@ const MarkdownRenderer = ({ content }) => {
             )
           },
           h1: ({ children }) => (
-            <h1 className="text-lg font-bold text-dos-green mb-4 font-dos">&gt; {children}</h1>
+            <h1 className="text-2xl font-bold text-console-green mb-6 font-mono">
+              <span className="text-console-accent">$</span> {children}
+            </h1>
           ),
           h2: ({ children }) => (
-            <h2 className="text-base font-bold text-dos-green mb-3 mt-6 font-dos">&gt;&gt; {children}</h2>
+            <h2 className="text-xl font-bold text-console-green mb-4 mt-8 font-mono">
+              <span className="text-console-accent">&gt;</span> {children}
+            </h2>
           ),
           h3: ({ children }) => (
-            <h3 className="text-sm font-bold text-dos-green mb-2 mt-4 font-dos">&gt;&gt;&gt; {children}</h3>
+            <h3 className="text-lg font-bold text-console-green mb-3 mt-6 font-mono">
+              <span className="text-console-accent">&gt;&gt;</span> {children}
+            </h3>
           ),
           p: ({ children }) => (
-            <p className="text-dos-green mb-4 leading-relaxed">{children}</p>
+            <p className="text-console-green mb-5 leading-relaxed">{children}</p>
           ),
           ul: ({ children }) => (
-            <ul className="mb-4">{children}</ul>
+            <ul className="mb-5">{children}</ul>
           ),
           ol: ({ children }) => (
-            <ol className="mb-4">{children}</ol>
+            <ol className="mb-5">{children}</ol>
           ),
           li: ({ children }) => (
-            <li className="text-dos-green mb-2">&gt; {children}</li>
+            <li className="text-console-green mb-2">{children}</li>
           ),
           blockquote: ({ children }) => (
-            <blockquote className="border-l-4 border-dos-green pl-4 text-dos-green-dim mb-4">
+            <blockquote className="border-l-4 border-console-accent pl-4 text-console-gray-dim mb-5 bg-console-bg-light rounded-r-md py-2">
               {children}
             </blockquote>
           ),
           a: ({ href, children }) => (
-            <a href={href} className="text-dos-green underline hover:text-dos-green-dim">
+            <a href={href} className="text-console-accent hover:text-console-green transition-colors duration-200">
               {children}
             </a>
           ),
           img: ({ src, alt }) => (
-            <img src={src} alt={alt} className="border border-dos-green max-w-full h-auto my-4" />
+            <img src={src} alt={alt} className="border border-console-gray-light rounded-lg max-w-full h-auto my-4 shadow-lg" />
           ),
           table: ({ children }) => (
-            <div className="overflow-x-auto mb-4">
-              <table className="min-w-full border border-dos-green">
+            <div className="overflow-x-auto mb-5">
+              <table className="min-w-full border border-console-gray-light rounded-lg overflow-hidden">
                 {children}
               </table>
             </div>
           ),
           th: ({ children }) => (
-            <th className="border border-dos-green px-2 py-1 text-left bg-dos-gray-dark font-bold text-dos-green">
+            <th className="border border-console-gray-light px-3 py-2 text-left bg-console-bg-light font-semibold text-console-green">
               {children}
             </th>
           ),
           td: ({ children }) => (
-            <td className="border border-dos-green px-2 py-1 text-left text-dos-green">
+            <td className="border border-console-gray-light px-3 py-2 text-left text-console-green">
               {children}
             </td>
           ),

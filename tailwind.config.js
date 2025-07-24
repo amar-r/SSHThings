@@ -7,23 +7,28 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        mono: ['Courier New', 'Courier', 'monospace'],
-        dos: ['Courier New', 'Courier', 'monospace'],
-        sans: ['Inter', 'system-ui', 'sans-serif'], // Add sans-serif for better readability
+        mono: ['JetBrains Mono', 'Fira Code', 'Courier New', 'monospace'],
+        dos: ['JetBrains Mono', 'Fira Code', 'Courier New', 'monospace'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
-        dos: {
-          green: '#90EE90', // Light green - much softer
-          'green-dim': '#7FBF7F', // Dimmed green
-          'green-dark': '#5A8A5A', // Darker green
-          black: '#0A0A0A', // Very dark gray instead of pure black
-          'gray-dark': '#1A1A1A', // Dark gray
-          'gray-light': '#2A2A2A', // Light gray for backgrounds
+        console: {
+          bg: '#0D1117', // GitHub dark theme background
+          'bg-light': '#161B22', // Slightly lighter background
+          'bg-lighter': '#21262D', // Even lighter for cards
+          green: '#7EE787', // Modern green (GitHub success color)
+          'green-dim': '#56D364', // Dimmed green
+          'green-dark': '#3FB950', // Darker green
+          'gray-light': '#30363D', // Light gray for borders
+          'gray-dim': '#8B949E', // Dimmed gray for secondary text
+          'accent': '#58A6FF', // Blue accent for links
         }
       },
       animation: {
         'cursor-blink': 'blink 1s infinite',
         'typewriter': 'typewriter 2s steps(40) 1s 1 normal both',
+        'fade-in': 'fadeIn 0.3s ease-in-out',
+        'slide-up': 'slideUp 0.2s ease-out',
       },
       keyframes: {
         blink: {
@@ -33,55 +38,74 @@ export default {
         typewriter: {
           '0%': { width: '0' },
           '100%': { width: '100%' },
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(10px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
         }
       },
       typography: {
         DEFAULT: {
           css: {
             maxWidth: 'none',
-            color: '#90EE90',
-            fontFamily: 'Inter, system-ui, sans-serif', // Use sans-serif for better readability
-            fontSize: '16px', // Larger font size
-            lineHeight: '1.7', // Better line spacing
+            color: '#7EE787',
+            fontFamily: 'Inter, system-ui, sans-serif',
+            fontSize: '16px',
+            lineHeight: '1.7',
             a: {
-              color: '#90EE90',
-              textDecoration: 'underline',
-              fontWeight: 'normal',
+              color: '#58A6FF',
+              textDecoration: 'none',
+              fontWeight: '500',
+              '&:hover': {
+                textDecoration: 'underline',
+              }
             },
             strong: {
-              color: '#90EE90',
-              fontWeight: 'bold',
+              color: '#7EE787',
+              fontWeight: '600',
             },
             h1: {
-              color: '#90EE90',
-              fontWeight: 'bold',
-              fontSize: '20px',
-              fontFamily: 'Courier New, Courier, monospace', // Keep headers in DOS style
+              color: '#7EE787',
+              fontWeight: '700',
+              fontSize: '24px',
+              fontFamily: 'JetBrains Mono, Fira Code, monospace',
+              marginBottom: '1.5rem',
+              marginTop: '2rem',
             },
             h2: {
-              color: '#90EE90',
-              fontWeight: 'bold',
-              fontSize: '18px',
-              fontFamily: 'Courier New, Courier, monospace',
+              color: '#7EE787',
+              fontWeight: '600',
+              fontSize: '20px',
+              fontFamily: 'JetBrains Mono, Fira Code, monospace',
+              marginBottom: '1rem',
+              marginTop: '1.5rem',
             },
             h3: {
-              color: '#90EE90',
-              fontWeight: 'bold',
-              fontSize: '16px',
-              fontFamily: 'Courier New, Courier, monospace',
+              color: '#7EE787',
+              fontWeight: '600',
+              fontSize: '18px',
+              fontFamily: 'JetBrains Mono, Fira Code, monospace',
+              marginBottom: '0.75rem',
+              marginTop: '1.25rem',
             },
             h4: {
-              color: '#90EE90',
-              fontWeight: 'bold',
-              fontSize: '14px',
-              fontFamily: 'Courier New, Courier, monospace',
+              color: '#7EE787',
+              fontWeight: '600',
+              fontSize: '16px',
+              fontFamily: 'JetBrains Mono, Fira Code, monospace',
             },
             code: {
-              color: '#90EE90',
-              fontWeight: 'normal',
-              backgroundColor: '#1A1A1A',
-              padding: '2px 4px',
-              fontFamily: 'Courier New, Courier, monospace', // Keep code in monospace
+              color: '#7EE787',
+              fontWeight: '500',
+              backgroundColor: '#161B22',
+              padding: '0.125rem 0.25rem',
+              borderRadius: '0.25rem',
+              fontFamily: 'JetBrains Mono, Fira Code, monospace',
+              fontSize: '0.875em',
             },
             'code::before': {
               content: 'none',
@@ -90,15 +114,18 @@ export default {
               content: 'none',
             },
             'a code': {
-              color: '#90EE90',
+              color: '#58A6FF',
             },
             pre: {
-              color: '#90EE90',
-              backgroundColor: '#1A1A1A',
-              border: '1px solid #90EE90',
+              color: '#7EE787',
+              backgroundColor: '#161B22',
+              border: '1px solid #30363D',
+              borderRadius: '0.5rem',
               overflowX: 'auto',
               fontWeight: 'normal',
-              fontFamily: 'Courier New, Courier, monospace', // Keep pre in monospace
+              fontFamily: 'JetBrains Mono, Fira Code, monospace',
+              padding: '1rem',
+              marginBottom: '1.5rem',
             },
             'pre code': {
               backgroundColor: 'transparent',
@@ -118,40 +145,46 @@ export default {
               content: 'none',
             },
             blockquote: {
-              borderLeftColor: '#90EE90',
-              color: '#7FBF7F',
+              borderLeftColor: '#58A6FF',
+              color: '#8B949E',
               fontStyle: 'normal',
               paddingLeft: '1rem',
               marginLeft: '0',
+              backgroundColor: '#161B22',
+              borderRadius: '0.25rem',
+              padding: '1rem',
             },
             ul: {
               listStyleType: 'none',
               paddingLeft: '0',
             },
             li: {
-              paddingLeft: '20px',
+              paddingLeft: '1.5rem',
               position: 'relative',
               marginBottom: '0.5rem',
             },
             'li::before': {
-              content: '"> "',
-              color: '#90EE90',
+              content: '"▸"',
+              color: '#58A6FF',
               position: 'absolute',
               left: '0',
-              fontFamily: 'Courier New, Courier, monospace',
+              fontFamily: 'JetBrains Mono, Fira Code, monospace',
             },
             table: {
-              borderColor: '#90EE90',
+              borderColor: '#30363D',
+              borderRadius: '0.5rem',
+              overflow: 'hidden',
             },
             th: {
-              borderColor: '#90EE90',
-              backgroundColor: '#1A1A1A',
+              borderColor: '#30363D',
+              backgroundColor: '#161B22',
+              fontWeight: '600',
             },
             td: {
-              borderColor: '#90EE90',
+              borderColor: '#30363D',
             },
             p: {
-              marginBottom: '1rem',
+              marginBottom: '1.25rem',
             },
           },
         },

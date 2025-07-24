@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,59 +8,68 @@
 @layer base {
   html {
     font-family: 'Inter', 'system-ui', sans-serif;
-    background-color: #0A0A0A;
-    color: #90EE90;
+    background-color: #0D1117;
+    color: #7EE787;
   }
   
   body {
-    @apply bg-dos-black text-dos-green;
+    @apply bg-console-bg text-console-green;
     font-size: 16px;
     line-height: 1.7;
     font-family: 'Inter', 'system-ui', sans-serif;
   }
 
-  /* DOS-style scrollbar */
+  /* Modern console scrollbar */
   ::-webkit-scrollbar {
-    width: 16px;
+    width: 12px;
   }
   
   ::-webkit-scrollbar-track {
-    background: #0A0A0A;
+    background: #0D1117;
   }
   
   ::-webkit-scrollbar-thumb {
-    background: #90EE90;
-    border: 1px solid #0A0A0A;
+    background: #30363D;
+    border-radius: 6px;
+    border: 2px solid #0D1117;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: #7FBF7F;
+    background: #484F58;
   }
 }
 
 @layer components {
-  .dos-prompt {
-    @apply text-dos-green font-dos;
+  .console-prompt {
+    @apply text-console-green font-mono;
   }
   
-  .dos-header {
-    @apply border-b border-dos-green bg-dos-black;
+  .console-header {
+    @apply border-b border-console-gray-light bg-console-bg backdrop-blur-sm bg-opacity-95 sticky top-0 z-50;
   }
   
-  .dos-card {
-    @apply border border-dos-green bg-dos-gray-light p-4;
+  .console-card {
+    @apply border border-console-gray-light bg-console-bg-lighter p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:border-console-green-dim;
   }
   
-  .dos-button {
-    @apply border border-dos-green bg-dos-gray-light text-dos-green px-4 py-2 font-dos hover:bg-dos-green hover:text-dos-black transition-colors;
+  .console-button {
+    @apply border border-console-gray-light bg-console-bg-lighter text-console-green px-4 py-2 font-mono rounded-md hover:bg-console-green hover:text-console-bg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-console-green focus:ring-offset-2 focus:ring-offset-console-bg;
   }
   
-  .dos-input {
-    @apply border border-dos-green bg-dos-gray-light text-dos-green px-3 py-2 font-dos focus:outline-none focus:ring-2 focus:ring-dos-green;
+  .console-input {
+    @apply border border-console-gray-light bg-console-bg-lighter text-console-green px-3 py-2 font-mono rounded-md focus:outline-none focus:ring-2 focus:ring-console-green focus:border-console-green transition-all duration-200;
   }
   
-  .dos-link {
-    @apply text-dos-green underline hover:text-dos-green-dim;
+  .console-link {
+    @apply text-console-accent hover:text-console-green transition-colors duration-200;
+  }
+  
+  .console-nav-link {
+    @apply text-console-green hover:text-console-green-dim transition-colors duration-200 font-mono;
+  }
+  
+  .console-nav-active {
+    @apply bg-console-green text-console-bg px-3 py-1 rounded-md;
   }
   
   .cursor-blink::after {
@@ -72,35 +82,35 @@
   }
   
   .prose h1 {
-    @apply text-lg font-bold mb-4 text-dos-green font-dos;
+    @apply text-xl font-bold mb-6 text-console-green font-mono;
   }
   
   .prose h2 {
-    @apply text-base font-bold mb-3 mt-6 text-dos-green font-dos;
+    @apply text-lg font-bold mb-4 mt-8 text-console-green font-mono;
   }
   
   .prose h3 {
-    @apply text-sm font-bold mb-2 mt-4 text-dos-green font-dos;
+    @apply text-base font-bold mb-3 mt-6 text-console-green font-mono;
   }
   
   .prose p {
-    @apply mb-4 text-dos-green leading-relaxed;
+    @apply mb-5 text-console-green leading-relaxed;
   }
   
   .prose ul {
-    @apply mb-4;
+    @apply mb-5;
   }
   
   .prose li {
-    @apply mb-2 text-dos-green;
+    @apply mb-2 text-console-green;
   }
   
   .prose code {
-    @apply bg-dos-gray-dark px-1 py-0.5 text-dos-green font-dos;
+    @apply bg-console-bg-light px-2 py-1 text-console-green font-mono rounded text-sm;
   }
   
   .prose pre {
-    @apply bg-dos-gray-dark border border-dos-green p-3 overflow-x-auto mb-4;
+    @apply bg-console-bg-light border border-console-gray-light p-4 overflow-x-auto mb-5 rounded-lg;
   }
   
   .prose pre code {
@@ -108,27 +118,36 @@
   }
   
   .prose blockquote {
-    @apply border-l-4 border-dos-green pl-3 text-dos-green-dim mb-4;
+    @apply border-l-4 border-console-accent pl-4 text-console-gray-dim mb-5 bg-console-bg-light rounded-r-md py-2;
   }
   
   .prose a {
-    @apply text-dos-green underline hover:text-dos-green-dim;
+    @apply text-console-accent hover:text-console-green transition-colors duration-200;
   }
   
   .prose img {
-    @apply border border-dos-green max-w-full h-auto;
+    @apply border border-console-gray-light rounded-lg max-w-full h-auto shadow-lg;
   }
   
   .prose table {
-    @apply w-full border-collapse border border-dos-green mb-4;
+    @apply w-full border-collapse border border-console-gray-light mb-5 rounded-lg overflow-hidden;
   }
   
   .prose th,
   .prose td {
-    @apply border border-dos-green px-2 py-1 text-left;
+    @apply border border-console-gray-light px-3 py-2 text-left;
   }
   
   .prose th {
-    @apply bg-dos-gray-dark font-bold;
+    @apply bg-console-bg-light font-semibold;
+  }
+  
+  /* Modern animations */
+  .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .slide-up {
+    animation: slideUp 0.2s ease-out;
   }
 } 
