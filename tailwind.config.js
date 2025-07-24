@@ -12,11 +12,12 @@ export default {
       },
       colors: {
         dos: {
-          green: '#00ff00',
-          'green-dim': '#00cc00',
-          'green-dark': '#008800',
-          black: '#000000',
-          'gray-dark': '#222222',
+          green: '#90EE90', // Light green - much softer
+          'green-dim': '#7FBF7F', // Dimmed green
+          'green-dark': '#5A8A5A', // Darker green
+          black: '#0A0A0A', // Very dark gray instead of pure black
+          'gray-dark': '#1A1A1A', // Dark gray
+          'gray-light': '#2A2A2A', // Light gray for backgrounds
         }
       },
       animation: {
@@ -37,43 +38,43 @@ export default {
         DEFAULT: {
           css: {
             maxWidth: 'none',
-            color: '#00ff00',
+            color: '#90EE90',
             fontFamily: 'Courier New, Courier, monospace',
             fontSize: '14px',
-            lineHeight: '1.4',
+            lineHeight: '1.5',
             a: {
-              color: '#00ff00',
+              color: '#90EE90',
               textDecoration: 'underline',
               fontWeight: 'normal',
             },
             strong: {
-              color: '#00ff00',
+              color: '#90EE90',
               fontWeight: 'bold',
             },
             h1: {
-              color: '#00ff00',
+              color: '#90EE90',
               fontWeight: 'bold',
               fontSize: '18px',
             },
             h2: {
-              color: '#00ff00',
+              color: '#90EE90',
               fontWeight: 'bold',
               fontSize: '16px',
             },
             h3: {
-              color: '#00ff00',
+              color: '#90EE90',
               fontWeight: 'bold',
               fontSize: '14px',
             },
             h4: {
-              color: '#00ff00',
+              color: '#90EE90',
               fontWeight: 'bold',
               fontSize: '14px',
             },
             code: {
-              color: '#00ff00',
+              color: '#90EE90',
               fontWeight: 'normal',
-              backgroundColor: '#222222',
+              backgroundColor: '#1A1A1A',
               padding: '2px 4px',
             },
             'code::before': {
@@ -83,12 +84,12 @@ export default {
               content: 'none',
             },
             'a code': {
-              color: '#00ff00',
+              color: '#90EE90',
             },
             pre: {
-              color: '#00ff00',
-              backgroundColor: '#222222',
-              border: '1px solid #00ff00',
+              color: '#90EE90',
+              backgroundColor: '#1A1A1A',
+              border: '1px solid #90EE90',
               overflowX: 'auto',
               fontWeight: 'normal',
             },
@@ -110,8 +111,8 @@ export default {
               content: 'none',
             },
             blockquote: {
-              borderLeftColor: '#00ff00',
-              color: '#00cc00',
+              borderLeftColor: '#90EE90',
+              color: '#7FBF7F',
               fontStyle: 'normal',
             },
             ul: {
@@ -124,19 +125,19 @@ export default {
             },
             'li::before': {
               content: '"> "',
-              color: '#00ff00',
+              color: '#90EE90',
               position: 'absolute',
               left: '0',
             },
             table: {
-              borderColor: '#00ff00',
+              borderColor: '#90EE90',
             },
             th: {
-              borderColor: '#00ff00',
-              backgroundColor: '#222222',
+              borderColor: '#90EE90',
+              backgroundColor: '#1A1A1A',
             },
             td: {
-              borderColor: '#00ff00',
+              borderColor: '#90EE90',
             },
           },
         },

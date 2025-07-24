@@ -5,14 +5,14 @@
 @layer base {
   html {
     font-family: 'Courier New', 'Courier', monospace;
-    background-color: #000000;
-    color: #00ff00;
+    background-color: #0A0A0A;
+    color: #90EE90;
   }
   
   body {
     @apply bg-dos-black text-dos-green font-dos;
     font-size: 14px;
-    line-height: 1.4;
+    line-height: 1.5;
   }
 
   /* DOS-style scrollbar */
@@ -21,16 +21,16 @@
   }
   
   ::-webkit-scrollbar-track {
-    background: #000000;
+    background: #0A0A0A;
   }
   
   ::-webkit-scrollbar-thumb {
-    background: #00ff00;
-    border: 1px solid #000000;
+    background: #90EE90;
+    border: 1px solid #0A0A0A;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: #00cc00;
+    background: #7FBF7F;
   }
 }
 
@@ -44,15 +44,15 @@
   }
   
   .dos-card {
-    @apply border border-dos-green bg-dos-black p-4;
+    @apply border border-dos-green bg-dos-gray-light p-4;
   }
   
   .dos-button {
-    @apply border border-dos-green bg-dos-black text-dos-green px-4 py-2 font-dos hover:bg-dos-green hover:text-dos-black transition-colors;
+    @apply border border-dos-green bg-dos-gray-light text-dos-green px-4 py-2 font-dos hover:bg-dos-green hover:text-dos-black transition-colors;
   }
   
   .dos-input {
-    @apply border border-dos-green bg-dos-black text-dos-green px-3 py-2 font-dos focus:outline-none focus:ring-2 focus:ring-dos-green;
+    @apply border border-dos-green bg-dos-gray-light text-dos-green px-3 py-2 font-dos focus:outline-none focus:ring-2 focus:ring-dos-green;
   }
   
   .dos-link {

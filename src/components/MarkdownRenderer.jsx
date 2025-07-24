@@ -15,9 +15,9 @@ const MarkdownRenderer = ({ content }) => {
                 language={match[1]}
                 PreTag="div"
                 customStyle={{
-                  backgroundColor: '#222222',
-                  border: '1px solid #00ff00',
-                  color: '#00ff00',
+                  backgroundColor: '#1A1A1A',
+                  border: '1px solid #90EE90',
+                  color: '#90EE90',
                   fontFamily: 'Courier New, Courier, monospace',
                   fontSize: '12px',
                 }}
