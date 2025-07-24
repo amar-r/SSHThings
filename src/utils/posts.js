@@ -5,7 +5,43 @@ export const posts = [
     title: 'Leveling Up DNS Security: Pi-hole + Unbound + DNSSEC Adventures',
     date: '2025-07-23',
     excerpt: 'How I went from basic Pi-hole ad blocking to running my own recursive DNS resolver with Unbound and DNSSEC validation—plus the lessons, pitfalls, and wins along the way.',
-    content: `# Leveling Up DNS Security: Pi-hole + Unbound + DNSSEC Adventures\n\n## Why I Wanted More Than Just Ad Blocking\n\nPi-hole is fantastic for blocking ads and trackers, but I realized that by default, it forwards DNS queries to public resolvers (like Google or Cloudflare). That means my DNS traffic—and my family\'s browsing habits—were still visible to third parties. I wanted more privacy and control, so I decided to run my own recursive resolver using [Unbound](https://docs.pi-hole.net/guides/dns/unbound/), and enable DNSSEC validation for extra security.\n\nThis post is my journey through the setup, the gotchas, and the satisfaction of seeing my DNS queries stay local and secure. If you want to follow along, I recommend checking the [official Pi-hole documentation](https://docs.pi-hole.net/main/) for the latest details.\n\n---\n\n## Prerequisites\n\n- **Pi-hole** already installed ([official guide](https://docs.pi-hole.net/main/))\n- **Unbound** (v1.9+ recommended)\n- **Raspberry Pi OS** or any modern Linux distro\n\n---\n\n## 1. Installing Unbound\n\nOn my Pi-hole box (a Raspberry Pi 4 running Raspberry Pi OS), I installed Unbound:\n\n\`\`\`bash\nsudo apt update\nsudo apt install unbound\n\`\`\`\n\n---\n\n## 2. Configuring Unbound for Pi-hole\n\nI created the recommended config file:\n\n\`\`\`bash\nsudo nano /etc/unbound/unbound.conf.d/pi-hole.conf\n\`\`\`\n\nAnd pasted in the [official config](https://docs.pi-hole.net/guides/dns/unbound/#recommended-unbound-config):\n\n\`\`\`conf\nserver:\n    verbosity: 0\n    interface: 127.0.0.1\n    port: 5335\n    do-ip4: yes\n    do-udp: yes\n    do-tcp: yes\n    root-hints: "/var/lib/unbound/root.hints"\n    harden-glue: yes\n    harden-dnssec-stripped: yes\n    use-caps-for-id: no\n    edns-buffer-size: 1232\n    prefetch: yes\n    num-threads: 1\n    so-rcvbuf: 1m\n    cache-min-ttl: 3600\n    cache-max-ttl: 86400\n    rrset-roundrobin: yes\n    minimal-responses: yes\n    private-address: 192.168.0.0/16\n    private-address: 169.254.0.0/16\n    private-address: 172.16.0.0/12\n    private-address: 10.0.0.0/8\n    private-address: fd00::/8\n    private-address: fe80::/10\n\`\`\`\n\n**Note:**  \n- The port `5335` keeps Unbound separate from Pi-hole’s default port 53.\n- The `root-hints` file should be present at `/var/lib/unbound/root.hints`. If not, download it:\n  \`\`\`bash\n  wget -O /var/lib/unbound/root.hints https://www.internic.net/domain/named.cache\n  \`\`\`\n\n---\n\n## 3. Enabling and Starting Unbound\n\n\`\`\`bash\nsudo systemctl enable unbound\nsudo systemctl restart unbound\n\`\`\`\n\n---\n\n## 4. Pointing Pi-hole to Unbound\n\nIn the Pi-hole web interface:\n- Go to **Settings > DNS**\n- Uncheck all upstream DNS servers\n- Add a custom upstream server:  \n  `127.0.0.1#5335`\n- Save and restart Pi-hole DNS:\n  \`\`\`bash\n  pihole restartdns\n  \`\`\`\n\n---\n\n## 5. DNSSEC: Let Unbound Handle It\n\nUnbound does DNSSEC validation by default with the config above. You **do not** need to enable DNSSEC in the Pi-hole web UI when using Unbound—let Unbound do the heavy lifting ([reference](https://docs.pi-hole.net/guides/dns/unbound/#dnssec-support)).\n\n---\n\n## 6. Testing the Setup\n\nI always like to test things before declaring victory. Here’s how I checked DNSSEC:\n\n\`\`\`bash\n# Should return SERVFAIL (invalid DNSSEC)\ndig +dnssec +multi dnssec-failed.org @127.0.0.1 -p 5335\n\n# Should return 'ad' flag (authenticated data)\ndig +dnssec +multi sigok.verteiltesysteme.net @127.0.0.1 -p 5335\n\`\`\`\n\nAnd to check regular DNS resolution:\n\n\`\`\`bash\ndig pi-hole.net @127.0.0.1 -p 5335\n\`\`\`\n\nOr just use the Pi-hole web interface to see queries flowing through Unbound.\n\n---\n\n## 7. Troubleshooting (Trust Anchor Woes)\n\nI hit the infamous `trust anchor presented twice` error at one point. If you see this, you may need to reset the root key:\n\n\`\`\`bash\nsudo systemctl stop unbound\nsudo rm -f /var/lib/unbound/root.key\nsudo unbound-anchor -a /var/lib/unbound/root.key\nsudo chown unbound:unbound /var/lib/unbound/root.key\nsudo chmod 644 /var/lib/unbound/root.key\nsudo systemctl start unbound\n\`\`\`\n\nOther useful commands:\n\n\`\`\`bash\nsudo journalctl -u unbound   # Unbound logs\npihole -t                    # Pi-hole logs\n\`\`\`\n\n---\n\n## 8. (Optional) Automating Pi-hole Backups\n\nAfter breaking my config one too many times, I automated Pi-hole backups to a private GitHub repo. Here’s a simple script:\n\n\`\`\`bash\n#!/bin/bash\nset -e\nBACKUP_DIR="/opt/pihole-git-backup"\nREPO_URL="https://<TOKEN>@github.com/youruser/pihole-backups.git"\n\nmkdir -p "$BACKUP_DIR"\ncp /etc/pihole/* "$BACKUP_DIR/" 2>/dev/null || true\ncp /etc/dnsmasq.d/* "$BACKUP_DIR/" 2>/dev/null || true\n\ncd "$BACKUP_DIR"\nif [ ! -d .git ]; then\n  git init\n  git remote add origin "$REPO_URL"\n  git checkout -b main\n  echo -e "*.db\n*.log\nconfig_backups/\n*.pem\ntls*" > .gitignore\n  git add .gitignore\n  git commit -m "Initial commit"\n  git push -u origin main\nfi\n\ngit add .\nif ! git diff --cached --quiet; then\n  git commit -m "Pi-hole backup on $(date '+%Y-%m-%d %H:%M:%S')"\n  git push origin main\nfi\n\`\`\`\n\nAdd to cron for daily backups:\n\`\`\`cron\n0 3 * * * /opt/backup.sh >> /var/log/pihole_git_backup.log 2>&1\n\`\`\`\n\n---\n\n## References\n\n- [Pi-hole Official Documentation](https://docs.pi-hole.net/main/)\n- [Unbound Recursive DNS Guide](https://docs.pi-hole.net/guides/dns/unbound/)\n- [DNSSEC Support](https://docs.pi-hole.net/guides/dns/unbound/#dnssec-support)\n\n---\n\n*What started as a simple ad-blocking project turned into a deep dive into recursive resolvers, DNSSEC validation, and why trust anchors are finicky. Now, my DNS is private, validated, and under my control—and I can troubleshoot it when things go wrong.* `,
+    content: `# Leveling Up DNS Security: Pi-hole + Unbound + DNSSEC Adventures
+
+## Why I Wanted More Than Just Ad Blocking
+
+Pi-hole is fantastic for blocking ads and trackers, but I realized that by default, it forwards DNS queries to public resolvers (like Google or Cloudflare). That means my DNS traffic—and my family's browsing habits—were still visible to third parties. I wanted more privacy and control, so I decided to run my own recursive resolver using Unbound, and enable DNSSEC validation for extra security.
+
+This post is my journey through the setup, the gotchas, and the satisfaction of seeing my DNS queries stay local and secure. If you want to follow along, I recommend checking the official Pi-hole documentation for the latest details.
+
+## Prerequisites
+
+- Pi-hole already installed
+- Unbound (v1.9+ recommended)  
+- Raspberry Pi OS or any modern Linux distro
+
+## Installing and Configuring Unbound
+
+On my Pi-hole box (a Raspberry Pi 4 running Raspberry Pi OS), I installed Unbound and configured it to work with Pi-hole following the official documentation. The setup involves creating a specific config file and pointing Pi-hole to use Unbound as the upstream resolver.
+
+## DNSSEC Validation
+
+Unbound handles DNSSEC validation by default with the proper configuration. You do not need to enable DNSSEC in the Pi-hole web UI when using Unbound—let Unbound do the heavy lifting.
+
+## Testing and Troubleshooting
+
+I tested the setup using dig commands to verify DNSSEC validation was working properly. The infamous "trust anchor presented twice" error can occur, but it's fixable by resetting the root key.
+
+## Automating Backups
+
+After breaking my config one too many times, I automated Pi-hole backups to a private GitHub repo using a simple bash script that runs daily via cron.
+
+## References
+
+- Pi-hole Official Documentation
+- Unbound Recursive DNS Guide  
+- DNSSEC Support Documentation
+
+*What started as a simple ad-blocking project turned into a deep dive into recursive resolvers, DNSSEC validation, and why trust anchors are finicky. Now, my DNS is private, validated, and under my control—and I can troubleshoot it when things go wrong.*`,
     tags: ['dns', 'pi-hole', 'unbound', 'dnssec', 'raspberry-pi', 'security', 'self-hosting'],
     readTime: 8,
     image: null
@@ -42,13 +78,11 @@ What started as a Raspberry Pi with a camera module has grown into this AMD Ryze
 ### How I Finally Got Organized
 After months of containers scattered everywhere (and constantly forgetting what was running where), I learned to organize things properly:
 
-\`\`\`
 infrastructure/
 ├── monitoring/     # All the Prometheus/Grafana goodness
 ├── proxy/         # Future home for reverse proxy setup
 ├── core/          # Essential services that keep things running
 └── applications/  # The fun stuff (media, home automation, etc.)
-\`\`\`
 
 This organization thing? Turns out there's actually a method to the madness that makes everything so much easier to manage!
 
@@ -73,45 +107,21 @@ The underlying architecture principles are solid - containerized services, prope
 ## The Great Shell Script Disaster (And How Makefiles Saved Me)
 
 ### My Shameful Shell Script Collection
-Let me confess something embarrassing. Before I discovered Makefiles, I had a handful of shell scripts with names like \`start_monitoring.sh\`, \`restart_media_stack.sh\`, and my personal favorite, \`fix_the_thing_that_broke_again.sh\`.
+Let me confess something embarrassing. Before I discovered Makefiles, I had a handful of shell scripts with names like start_monitoring.sh, restart_media_stack.sh, and my personal favorite, fix_the_thing_that_broke_again.sh.
 
 Each script was a unique snowflake of hardcoded paths, zero error handling, and inconsistent formatting. Want to restart the monitoring stack? Good luck remembering which of the 5 scripts does that, in what order, and whether you remembered to set the right environment variables first.
 
 My family learned not to ask me to fix streaming issues during dinner because it usually involved me frantically running scripts, swearing at the terminal, and occasionally breaking more things than I fixed. There was the infamous DNS incident where I took down the entire internet while "just tweaking Pi-hole settings" during prime Netflix time. My wife still reminds me about that one.
 
 ### The Makefile Enlightenment
-Then I discovered Makefiles, and my entire operational life changed. What used to be this chaotic mess:
-
-\`\`\`bash
-# Pray this works...
-./scripts/stop_monitoring.sh
-./scripts/backup_prometheus_data.sh  
-./scripts/start_monitoring.sh
-./scripts/verify_grafana.sh
-# Now cross fingers and hope nothing broke
-\`\`\`
-
-Became this elegant solution:
-
-\`\`\`makefile
-restart-monitoring: stop-monitoring backup-prometheus start-monitoring verify-grafana
-	@echo "Monitoring stack restarted successfully"
-
-stop-monitoring:
-	docker-compose -f monitoring/docker-compose.yml down
-
-start-monitoring:
-	docker-compose -f monitoring/docker-compose.yml up -d
-\`\`\`
-
-Suddenly I had dependencies, parallel execution, consistent formatting, and actual error handling. It was like discovering civilization after years of digital barbarism.
+Then I discovered Makefiles, and my entire operational life changed. What used to be this chaotic mess became elegant solutions with dependencies, parallel execution, consistent formatting, and actual error handling. It was like discovering civilization after years of digital barbarism.
 
 ### The Unexpected Discipline
 The Makefile didn't just organize my commands - it forced me into better operational practices without realizing it. Every change gets documented in code, deployments become repeatable, and I stopped breaking things because I forgot a step.
 
-My family noticed the difference when "fix the streaming" went from a 30-minute debugging session to a simple \`make restart-media\` command. Turns out, proper operational practices benefit everyone in the household.
+My family noticed the difference when "fix the streaming" went from a 30-minute debugging session to a simple make restart-media command. Turns out, proper operational practices benefit everyone in the household.
 
-## What I Accidentally Learned Along the Way
+## What I Actually Learned
 
 ### Learning Configuration Management the Right Way
 I've been pretty careful about keeping secrets out of version control from the start, but I still ended up implementing proper configuration management practices. Environment separation, secrets management, version control for everything - even my home setup has dev/staging concepts because apparently I can't help myself.
@@ -146,7 +156,7 @@ That weird workaround you implemented during a late-night debugging session? Wri
 
 ## How It's Actually Working
 
-The system runs surprisingly well for something built by someone who once brought down production because I forgot a \`WHERE\` clause:
+The system runs surprisingly well for something built by someone who once brought down production because I forgot a WHERE clause:
 
 - **Family happiness**: High - streaming just works, lights turn on when they should
 - **Uptime**: Core services running 2+ months without me touching them
