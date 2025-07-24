@@ -1,0 +1,22 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="32" height="32" fill="#0D1117"/>
+  
+  <!-- Terminal prompt -->
+  <text x="2" y="20" font-family="JetBrains Mono, monospace" font-size="12" font-weight="700" fill="#7EE787">
+    $
+  </text>
+  
+  <!-- sshthings text (simplified for small size) -->
+  <text x="8" y="20" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#7EE787">
+    ssh
+  </text>
+  
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid-small" width="4" height="4" patternUnits="userSpaceOnUse">
+      <path d="M 4 0 L 0 0 0 4" fill="none" stroke="#161B22" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="32" height="32" fill="url(#grid-small)"/>
+</svg> 
