@@ -1,35 +1,58 @@
 <svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
   <!-- Background -->
-  <rect width="1200" height="630" fill="url(#gradient)"/>
-  
-  <!-- Gradient Definition -->
-  <defs>
-    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
-    </linearGradient>
-  </defs>
+  <rect width="1200" height="630" fill="#0D1117"/>
   
   <!-- Content Container -->
-  <g transform="translate(100, 150)">
-    <!-- sshthings Logo/Title -->
-    <text x="0" y="80" font-family="Inter, system-ui, sans-serif" font-size="72" font-weight="700" fill="white">
+  <g transform="translate(100, 200)">
+    <!-- Terminal prompt -->
+    <text x="0" y="60" font-family="JetBrains Mono, monospace" font-size="24" font-weight="400" fill="#7EE787">
+      $
+    </text>
+    
+    <!-- sshthings title -->
+    <text x="40" y="60" font-family="JetBrains Mono, monospace" font-size="72" font-weight="700" fill="#7EE787">
       sshthings
     </text>
     
+    <!-- Blinking cursor -->
+    <text x="420" y="60" font-family="JetBrains Mono, monospace" font-size="72" font-weight="700" fill="#7EE787">
+      _
+    </text>
+    
     <!-- Tagline -->
-    <text x="0" y="140" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="400" fill="rgba(255,255,255,0.8)">
+    <text x="0" y="140" font-family="JetBrains Mono, monospace" font-size="28" font-weight="400" fill="#E6EDF3">
       Self-hosted projects and infrastructure ramblings
     </text>
     
     <!-- Author -->
-    <text x="0" y="180" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="400" fill="rgba(255,255,255,0.6)">
+    <text x="0" y="180" font-family="JetBrains Mono, monospace" font-size="20" font-weight="400" fill="#7D8590">
       by Amar
+    </text>
+    
+    <!-- Decorative terminal elements -->
+    <rect x="0" y="220" width="1000" height="2" fill="#30363D"/>
+    <text x="0" y="250" font-family="JetBrains Mono, monospace" font-size="16" font-weight="400" fill="#7D8590">
+      > ls -la
+    </text>
+    <text x="0" y="280" font-family="JetBrains Mono, monospace" font-size="16" font-weight="400" fill="#7D8590">
+      drwxr-xr-x 2 user user 4096 Jan 15 10:30 .
+    </text>
+    <text x="0" y="300" font-family="JetBrains Mono, monospace" font-size="16" font-weight="400" fill="#7D8590">
+      drwxr-xr-x 3 user user 4096 Jan 15 10:30 ..
+    </text>
+    <text x="0" y="320" font-family="JetBrains Mono, monospace" font-size="16" font-weight="400" fill="#7D8590">
+      -rw-r--r-- 1 user user  123 Jan 15 10:30 blog.md
+    </text>
+    <text x="0" y="340" font-family="JetBrains Mono, monospace" font-size="16" font-weight="400" fill="#7D8590">
+      -rw-r--r-- 1 user user  456 Jan 15 10:30 homelab.md
     </text>
   </g>
   
-  <!-- Decorative Elements -->
-  <circle cx="1000" cy="150" r="80" fill="rgba(255,255,255,0.1)"/>
-  <circle cx="950" cy="200" r="40" fill="rgba(255,255,255,0.05)"/>
-  <circle cx="1050" cy="250" r="60" fill="rgba(255,255,255,0.08)"/>
+  <!-- Subtle grid pattern for terminal feel -->
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#161B22" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
 </svg> 
