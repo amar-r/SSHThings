@@ -24,13 +24,13 @@ const Blog = () => {
         <meta name="description" content="Read about technology, homelab experiments, and infrastructure adventures." />
       </Helmet>
 
-      <div className="min-h-screen bg-dos-black">
+      <div className="min-h-screen bg-console-bg">
         <div className="max-w-6xl mx-auto px-4 py-8">
           <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-dos-green mb-4 font-dos">
+            <h1 className="text-2xl font-bold text-console-green mb-4 font-mono">
               BLOG
             </h1>
-            <p className="text-dos-green font-dos">
+            <p className="text-console-green font-mono">
               THOUGHTS, EXPERIMENTS, AND DISCOVERIES FROM MY TECHNOLOGY JOURNEY.
             </p>
           </div>
@@ -43,12 +43,12 @@ const Blog = () => {
                 placeholder="SEARCH POSTS..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="dos-input flex-1"
+                className="console-input flex-1"
               />
               <select
                 value={selectedTag}
                 onChange={(e) => setSelectedTag(e.target.value)}
-                className="dos-input"
+                className="console-input"
               >
                 <option value="">ALL TAGS</option>
                 {allTags.map(tag => (
@@ -67,7 +67,7 @@ const Blog = () => {
             </div>
           ) : (
             <div className="text-center py-12">
-              <p className="text-dos-green-dim text-lg font-dos">
+              <p className="text-console-gray-dim text-lg font-mono">
                 NO POSTS FOUND MATCHING YOUR CRITERIA.
               </p>
             </div>
