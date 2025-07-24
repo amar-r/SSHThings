@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         mono: ['Courier New', 'Courier', 'monospace'],
         dos: ['Courier New', 'Courier', 'monospace'],
+        sans: ['Inter', 'system-ui', 'sans-serif'], // Add sans-serif for better readability
       },
       colors: {
         dos: {
@@ -39,9 +40,9 @@ export default {
           css: {
             maxWidth: 'none',
             color: '#90EE90',
-            fontFamily: 'Courier New, Courier, monospace',
-            fontSize: '14px',
-            lineHeight: '1.5',
+            fontFamily: 'Inter, system-ui, sans-serif', // Use sans-serif for better readability
+            fontSize: '16px', // Larger font size
+            lineHeight: '1.7', // Better line spacing
             a: {
               color: '#90EE90',
               textDecoration: 'underline',
@@ -54,28 +55,33 @@ export default {
             h1: {
               color: '#90EE90',
               fontWeight: 'bold',
-              fontSize: '18px',
+              fontSize: '20px',
+              fontFamily: 'Courier New, Courier, monospace', // Keep headers in DOS style
             },
             h2: {
               color: '#90EE90',
               fontWeight: 'bold',
-              fontSize: '16px',
+              fontSize: '18px',
+              fontFamily: 'Courier New, Courier, monospace',
             },
             h3: {
               color: '#90EE90',
               fontWeight: 'bold',
-              fontSize: '14px',
+              fontSize: '16px',
+              fontFamily: 'Courier New, Courier, monospace',
             },
             h4: {
               color: '#90EE90',
               fontWeight: 'bold',
               fontSize: '14px',
+              fontFamily: 'Courier New, Courier, monospace',
             },
             code: {
               color: '#90EE90',
               fontWeight: 'normal',
               backgroundColor: '#1A1A1A',
               padding: '2px 4px',
+              fontFamily: 'Courier New, Courier, monospace', // Keep code in monospace
             },
             'code::before': {
               content: 'none',
@@ -92,6 +98,7 @@ export default {
               border: '1px solid #90EE90',
               overflowX: 'auto',
               fontWeight: 'normal',
+              fontFamily: 'Courier New, Courier, monospace', // Keep pre in monospace
             },
             'pre code': {
               backgroundColor: 'transparent',
@@ -114,6 +121,8 @@ export default {
               borderLeftColor: '#90EE90',
               color: '#7FBF7F',
               fontStyle: 'normal',
+              paddingLeft: '1rem',
+              marginLeft: '0',
             },
             ul: {
               listStyleType: 'none',
@@ -122,12 +131,14 @@ export default {
             li: {
               paddingLeft: '20px',
               position: 'relative',
+              marginBottom: '0.5rem',
             },
             'li::before': {
               content: '"> "',
               color: '#90EE90',
               position: 'absolute',
               left: '0',
+              fontFamily: 'Courier New, Courier, monospace',
             },
             table: {
               borderColor: '#90EE90',
@@ -138,6 +149,9 @@ export default {
             },
             td: {
               borderColor: '#90EE90',
+            },
+            p: {
+              marginBottom: '1rem',
             },
           },
         },

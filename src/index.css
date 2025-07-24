@@ -1,18 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   html {
-    font-family: 'Courier New', 'Courier', monospace;
+    font-family: 'Inter', 'system-ui', sans-serif;
     background-color: #0A0A0A;
     color: #90EE90;
   }
   
   body {
-    @apply bg-dos-black text-dos-green font-dos;
-    font-size: 14px;
-    line-height: 1.5;
+    @apply bg-dos-black text-dos-green;
+    font-size: 16px;
+    line-height: 1.7;
+    font-family: 'Inter', 'system-ui', sans-serif;
   }
 
   /* DOS-style scrollbar */
@@ -69,27 +72,27 @@
   }
   
   .prose h1 {
-    @apply text-lg font-bold mb-4 text-dos-green;
+    @apply text-lg font-bold mb-4 text-dos-green font-dos;
   }
   
   .prose h2 {
-    @apply text-base font-bold mb-3 mt-6 text-dos-green;
+    @apply text-base font-bold mb-3 mt-6 text-dos-green font-dos;
   }
   
   .prose h3 {
-    @apply text-sm font-bold mb-2 mt-4 text-dos-green;
+    @apply text-sm font-bold mb-2 mt-4 text-dos-green font-dos;
   }
   
   .prose p {
-    @apply mb-3 text-dos-green leading-relaxed;
+    @apply mb-4 text-dos-green leading-relaxed;
   }
   
   .prose ul {
-    @apply mb-3;
+    @apply mb-4;
   }
   
   .prose li {
-    @apply mb-1 text-dos-green;
+    @apply mb-2 text-dos-green;
   }
   
   .prose code {
@@ -97,7 +100,7 @@
   }
   
   .prose pre {
-    @apply bg-dos-gray-dark border border-dos-green p-3 overflow-x-auto mb-3;
+    @apply bg-dos-gray-dark border border-dos-green p-3 overflow-x-auto mb-4;
   }
   
   .prose pre code {
@@ -105,7 +108,7 @@
   }
   
   .prose blockquote {
-    @apply border-l-4 border-dos-green pl-3 text-dos-green-dim mb-3;
+    @apply border-l-4 border-dos-green pl-3 text-dos-green-dim mb-4;
   }
   
   .prose a {
@@ -117,7 +120,7 @@
   }
   
   .prose table {
-    @apply w-full border-collapse border border-dos-green mb-3;
+    @apply w-full border-collapse border border-dos-green mb-4;
   }
   
   .prose th,

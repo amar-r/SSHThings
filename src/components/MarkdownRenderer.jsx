@@ -4,7 +4,7 @@ import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 const MarkdownRenderer = ({ content }) => {
   return (
-    <div className="prose prose-lg max-w-none font-dos">
+    <div className="prose prose-lg max-w-none">
       <ReactMarkdown
         components={{
           code({ node, inline, className, children, ...props }) {
@@ -32,28 +32,28 @@ const MarkdownRenderer = ({ content }) => {
             )
           },
           h1: ({ children }) => (
-            <h1 className="text-lg font-bold text-dos-green mb-3">&gt; {children}</h1>
+            <h1 className="text-lg font-bold text-dos-green mb-4 font-dos">&gt; {children}</h1>
           ),
           h2: ({ children }) => (
-            <h2 className="text-base font-bold text-dos-green mb-2 mt-4">&gt;&gt; {children}</h2>
+            <h2 className="text-base font-bold text-dos-green mb-3 mt-6 font-dos">&gt;&gt; {children}</h2>
           ),
           h3: ({ children }) => (
-            <h3 className="text-sm font-bold text-dos-green mb-2 mt-3">&gt;&gt;&gt; {children}</h3>
+            <h3 className="text-sm font-bold text-dos-green mb-2 mt-4 font-dos">&gt;&gt;&gt; {children}</h3>
           ),
           p: ({ children }) => (
-            <p className="text-dos-green mb-3 leading-relaxed">{children}</p>
+            <p className="text-dos-green mb-4 leading-relaxed">{children}</p>
           ),
           ul: ({ children }) => (
-            <ul className="mb-3">{children}</ul>
+            <ul className="mb-4">{children}</ul>
           ),
           ol: ({ children }) => (
-            <ol className="mb-3">{children}</ol>
+            <ol className="mb-4">{children}</ol>
           ),
           li: ({ children }) => (
-            <li className="text-dos-green mb-1">&gt; {children}</li>
+            <li className="text-dos-green mb-2">&gt; {children}</li>
           ),
           blockquote: ({ children }) => (
-            <blockquote className="border-l-4 border-dos-green pl-3 text-dos-green-dim mb-3">
+            <blockquote className="border-l-4 border-dos-green pl-4 text-dos-green-dim mb-4">
               {children}
             </blockquote>
           ),
@@ -63,10 +63,10 @@ const MarkdownRenderer = ({ content }) => {
             </a>
           ),
           img: ({ src, alt }) => (
-            <img src={src} alt={alt} className="border border-dos-green max-w-full h-auto my-3" />
+            <img src={src} alt={alt} className="border border-dos-green max-w-full h-auto my-4" />
           ),
           table: ({ children }) => (
-            <div className="overflow-x-auto mb-3">
+            <div className="overflow-x-auto mb-4">
               <table className="min-w-full border border-dos-green">
                 {children}
               </table>
