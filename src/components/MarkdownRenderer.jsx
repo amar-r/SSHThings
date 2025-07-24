@@ -4,7 +4,7 @@ import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 const MarkdownRenderer = ({ content }) => {
   return (
-    <div className="prose prose-lg max-w-none">
+    <div className="prose prose-lg max-w-none px-4 py-8">
       <ReactMarkdown
         components={{
           code({ node, inline, className, children, ...props }) {
@@ -34,62 +34,54 @@ const MarkdownRenderer = ({ content }) => {
             )
           },
           h1: ({ children }) => (
-            <h1 className="text-2xl font-bold text-console-green mb-6 font-mono">
+            <h1 className="prose-h1">
               <span className="text-console-accent">$</span> {children}
             </h1>
           ),
           h2: ({ children }) => (
-            <h2 className="text-xl font-bold text-console-green mb-4 mt-8 font-mono">
+            <h2 className="prose-h2">
               <span className="text-console-accent">&gt;</span> {children}
             </h2>
           ),
           h3: ({ children }) => (
-            <h3 className="text-lg font-bold text-console-green mb-3 mt-6 font-mono">
+            <h3 className="prose-h3">
               <span className="text-console-accent">&gt;&gt;</span> {children}
             </h3>
           ),
           p: ({ children }) => (
-            <p className="text-console-green mb-5 leading-relaxed">{children}</p>
+            <p className="prose-p">{children}</p>
           ),
           ul: ({ children }) => (
-            <ul className="mb-5">{children}</ul>
+            <ul className="prose-ul">{children}</ul>
           ),
           ol: ({ children }) => (
-            <ol className="mb-5">{children}</ol>
+            <ol className="prose-ol">{children}</ol>
           ),
           li: ({ children }) => (
-            <li className="text-console-green mb-2">{children}</li>
+            <li className="prose-li">{children}</li>
           ),
           blockquote: ({ children }) => (
-            <blockquote className="border-l-4 border-console-accent pl-4 text-console-gray-dim mb-5 bg-console-bg-light rounded-r-md py-2">
-              {children}
-            </blockquote>
+            <blockquote className="prose-blockquote">{children}</blockquote>
           ),
           a: ({ href, children }) => (
-            <a href={href} className="text-console-accent hover:text-console-green transition-colors duration-200">
-              {children}
-            </a>
+            <a href={href} className="prose-a">{children}</a>
           ),
           img: ({ src, alt }) => (
-            <img src={src} alt={alt} className="border border-console-gray-light rounded-lg max-w-full h-auto my-4 shadow-lg" />
+            <img src={src} alt={alt} className="prose-img" />
           ),
-          table: ({ children }) => (
-            <div className="overflow-x-auto mb-5">
-              <table className="min-w-full border border-console-gray-light rounded-lg overflow-hidden">
-                {children}
-              </table>
-            </div>
-          ),
-          th: ({ children }) => (
-            <th className="border border-console-gray-light px-3 py-2 text-left bg-console-bg-light font-semibold text-console-green">
-              {children}
-            </th>
-          ),
-          td: ({ children }) => (
-            <td className="border border-console-gray-light px-3 py-2 text-left text-console-green">
-              {children}
-            </td>
-          ),
+                      table: ({ children }) => (
+              <div className="overflow-x-auto">
+                <table className="prose-table">
+                  {children}
+                </table>
+              </div>
+            ),
+            th: ({ children }) => (
+              <th className="prose-th">{children}</th>
+            ),
+            td: ({ children }) => (
+              <td className="prose-td">{children}</td>
+            ),
         }}
       >
         {content}
