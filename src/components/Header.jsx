@@ -13,7 +13,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link to="/" className="text-lg font-bold text-console-green hover:text-console-green-dim transition-colors duration-200 font-mono">
-              <span className="text-console-accent">$</span> sshthings
+              <span className="text-console-accent">$</span> sshthings<span className="cursor-blink"></span>
             </Link>
           </div>
           
