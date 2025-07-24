@@ -4,49 +4,100 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    font-family: 'Courier New', 'Courier', monospace;
+    background-color: #000000;
+    color: #00ff00;
   }
   
   body {
-    @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+    @apply bg-dos-black text-dos-green font-dos;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  /* DOS-style scrollbar */
+  ::-webkit-scrollbar {
+    width: 16px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #00ff00;
+    border: 1px solid #000000;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00cc00;
   }
 }
 
 @layer components {
+  .dos-prompt {
+    @apply text-dos-green font-dos;
+  }
+  
+  .dos-header {
+    @apply border-b border-dos-green bg-dos-black;
+  }
+  
+  .dos-card {
+    @apply border border-dos-green bg-dos-black p-4;
+  }
+  
+  .dos-button {
+    @apply border border-dos-green bg-dos-black text-dos-green px-4 py-2 font-dos hover:bg-dos-green hover:text-dos-black transition-colors;
+  }
+  
+  .dos-input {
+    @apply border border-dos-green bg-dos-black text-dos-green px-3 py-2 font-dos focus:outline-none focus:ring-2 focus:ring-dos-green;
+  }
+  
+  .dos-link {
+    @apply text-dos-green underline hover:text-dos-green-dim;
+  }
+  
+  .cursor-blink::after {
+    content: '_';
+    animation: blink 1s infinite;
+  }
+  
   .prose {
     @apply max-w-none;
   }
   
   .prose h1 {
-    @apply text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100;
+    @apply text-lg font-bold mb-4 text-dos-green;
   }
   
   .prose h2 {
-    @apply text-2xl font-semibold mb-4 mt-8 text-gray-800 dark:text-gray-200;
+    @apply text-base font-bold mb-3 mt-6 text-dos-green;
   }
   
   .prose h3 {
-    @apply text-xl font-semibold mb-3 mt-6 text-gray-800 dark:text-gray-200;
+    @apply text-sm font-bold mb-2 mt-4 text-dos-green;
   }
   
   .prose p {
-    @apply mb-4 text-gray-700 dark:text-gray-300 leading-relaxed;
+    @apply mb-3 text-dos-green leading-relaxed;
   }
   
   .prose ul {
-    @apply mb-4 pl-6;
+    @apply mb-3;
   }
   
   .prose li {
-    @apply mb-2 text-gray-700 dark:text-gray-300;
+    @apply mb-1 text-dos-green;
   }
   
   .prose code {
-    @apply bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm font-mono text-gray-800 dark:text-gray-200;
+    @apply bg-dos-gray-dark px-1 py-0.5 text-dos-green font-dos;
   }
   
   .prose pre {
-    @apply bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto mb-4;
+    @apply bg-dos-gray-dark border border-dos-green p-3 overflow-x-auto mb-3;
   }
   
   .prose pre code {
@@ -54,33 +105,27 @@
   }
   
   .prose blockquote {
-    @apply border-l-4 border-primary-500 pl-4 italic text-gray-600 dark:text-gray-400 mb-4;
+    @apply border-l-4 border-dos-green pl-3 text-dos-green-dim mb-3;
   }
   
   .prose a {
-    @apply text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 underline;
+    @apply text-dos-green underline hover:text-dos-green-dim;
   }
   
   .prose img {
-    @apply rounded-lg shadow-md max-w-full h-auto;
+    @apply border border-dos-green max-w-full h-auto;
   }
   
   .prose table {
-    @apply w-full border-collapse border border-gray-300 dark:border-gray-600 mb-4;
+    @apply w-full border-collapse border border-dos-green mb-3;
   }
   
   .prose th,
   .prose td {
-    @apply border border-gray-300 dark:border-gray-600 px-3 py-2 text-left;
+    @apply border border-dos-green px-2 py-1 text-left;
   }
   
   .prose th {
-    @apply bg-gray-100 dark:bg-gray-800 font-semibold;
-  }
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+    @apply bg-dos-gray-dark font-bold;
   }
 } 

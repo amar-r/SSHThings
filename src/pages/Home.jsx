@@ -1,158 +1,77 @@
-import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { motion } from 'framer-motion'
-import { ArrowRightIcon, CodeBracketIcon, ServerIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/outline'
+import { Helmet } from 'react-helmet-async'
+import BlogCard from '../components/BlogCard'
+import { getAllPosts } from '../utils/posts'
 
 const Home = () => {
-  const features = [
-    {
-      icon: CodeBracketIcon,
-      title: 'Homelab Projects',
-      description: 'Docker containers, self-hosted services, and home automation experiments.',
-    },
-    {
-      icon: ServerIcon,
-      title: 'Personal Automation',
-      description: 'Scripts, workflows, and tools I build to make life easier.',
-    },
-    {
-      icon: WrenchScrewdriverIcon,
-      title: 'Random Projects',
-      description: 'Various interesting things I\'m tinkering with.',
-    },
-  ]
+  const recentPosts = getAllPosts().slice(0, 3)
 
   return (
     <>
       <Helmet>
-        <title>SSHthings</title>
-        <meta name="description" content="Amar's blog about self-hosting, automation, and infrastructure experiments." />
-        <meta property="og:title" content="SSHthings" />
-        <meta property="og:description" content="Amar's blog about self-hosting, automation, and infrastructure experiments." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://sshthings.com" />
+        <title>SSHTHINGS.COM - Personal Blog</title>
+        <meta name="description" content="A personal blog about technology, homelab, and infrastructure experiments." />
       </Helmet>
 
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-dos-black">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 py-20 lg:py-32">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center flex flex-col items-center justify-center">
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4 text-center"
+        <section className="py-8 px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center">
+              <h1 className="text-2xl font-bold text-dos-green mb-4 font-dos">
+                WELCOME TO SSHTHINGS.COM
+              </h1>
+              <p className="text-dos-green mb-6 max-w-2xl mx-auto font-dos">
+                A PERSONAL BLOG ABOUT TECHNOLOGY, HOMELAB EXPERIMENTS, AND INFRASTRUCTURE ADVENTURES.
+              </p>
+              <Link
+                to="/blog"
+                className="dos-button"
               >
-                Welcome to{' '}
-                <span className="inline-flex items-baseline">
-                  <span className="font-bold text-primary-600 dark:text-primary-400">SSH</span>
-                  <span className="font-normal text-primary-600 dark:text-primary-400">things</span>
-                </span>
-              </motion.h1>
-              
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-lg md:text-xl text-gray-500 dark:text-gray-400 mb-6 text-center italic"
-              >
-                Self-Service Homelab
-              </motion.p>
-              
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto text-center"
-              >
-                A blog about self-hosting, automation, and infrastructure experiments
-              </motion.p>
-              
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto text-center"
-              >
-                A personal blog about homelab projects, automation experiments, 
-                and random interesting things I'm working on.
-              </motion.p>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center"
-              >
-                <Link
-                  to="/blog"
-                  className="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-medium rounded-lg transition-colors duration-200"
-                >
-                  Explore Blog
-                  <ArrowRightIcon className="ml-2 h-5 w-5" />
-                </Link>
-                <Link
-                  to="/about"
-                  className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 font-medium rounded-lg transition-colors duration-200"
-                >
-                  Learn More
-                </Link>
-              </motion.div>
+                READ THE BLOG
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* Features Section */}
-        <section className="py-20 bg-white dark:bg-gray-900">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16 flex flex-col items-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4 text-center">
-                What I Write About
-              </h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-center">
-                From homelab adventures to various automation projects, here's what I'm working on.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="text-center p-6 rounded-lg bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
-                >
-                  <feature.icon className="h-12 w-12 text-primary-600 dark:text-primary-400 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">
-                    {feature.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    {feature.description}
-                  </p>
-                </motion.div>
+        {/* Recent Posts */}
+        <section className="py-8 px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-lg font-bold text-dos-green mb-6 text-center font-dos">
+              RECENT POSTS
+            </h2>
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {recentPosts.map((post) => (
+                <BlogCard key={post.slug} post={post} />
               ))}
             </div>
+            <div className="text-center mt-6">
+              <Link
+                to="/blog"
+                className="dos-link font-dos"
+              >
+                VIEW ALL POSTS &gt;&gt;
+              </Link>
+            </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-20 bg-primary-600 dark:bg-primary-700">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 text-center">
-              Ready to Explore?
+        {/* About Section */}
+        <section className="py-8 px-4 border-t border-dos-green">
+          <div className="max-w-6xl mx-auto text-center">
+            <h2 className="text-lg font-bold text-dos-green mb-4 font-dos">
+              ABOUT ME
             </h2>
-            <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto text-center">
-              Dive into my latest posts and discover interesting projects, 
-              automation experiments, and random things I'm building.
+            <p className="text-dos-green mb-6 max-w-2xl mx-auto font-dos">
+              I'M PASSIONATE ABOUT TECHNOLOGY AND LOVE EXPERIMENTING WITH INFRASTRUCTURE, 
+              AUTOMATION, AND SELF-HOSTING SOLUTIONS. THIS BLOG IS WHERE I SHARE MY 
+              EXPERIENCES AND DISCOVERIES.
             </p>
             <Link
-              to="/blog"
-              className="inline-flex items-center px-8 py-4 bg-white text-primary-600 hover:bg-gray-100 font-semibold rounded-lg transition-colors duration-200"
+              to="/about"
+              className="dos-link font-dos"
             >
-              Start Reading
-              <ArrowRightIcon className="ml-2 h-5 w-5" />
+              LEARN MORE ABOUT ME &gt;&gt;
             </Link>
           </div>
         </section>
