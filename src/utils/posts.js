@@ -259,7 +259,7 @@ You can see the entire setup on my [GitHub](https://github.com/amar-r/HomeFleet/
 
 ## What's Next
 
-In future posts, I'll start diving deeper into some of my other containerized solution. Why I decided to pick them and the issues I ran along the way.
+In future posts, I'll start diving deeper into some of my containerized solutions. Why I decided to pick them and the issues I ran along the way.
 
 ---
 
