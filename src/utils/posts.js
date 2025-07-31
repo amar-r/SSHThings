@@ -2,16 +2,19 @@
 export const posts = [
   {
     slug: 'raspberrypi-gration',
-    title: 'The great RaspberryPI-gration',
-    date: '2025-01-15',
+    title: 'The Great RaspberryPI-Gration',
+    date: '2025-07-30',
     excerpt: 'A placeholder for the upcoming blog post about Raspberry Pi migration adventures.',
-    content: `# The great RaspberryPI-gration
+    content: `# The Great RaspberryPI-Gration
 
 ## Introduction
 
 This is a placeholder for the upcoming blog post about Raspberry Pi migration adventures.
 
 ## Coming Soon
+
+<div class="loading-bar"></div>
+<div class="loading-text">Loading migration content...</div>
 
 More content will be added here soon...
 
