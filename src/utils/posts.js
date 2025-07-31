@@ -1,11 +1,11 @@
 // Simplified blog system that works reliably
 export const posts = [
   {
-    slug: 'raspberrypi-gration',
-    title: 'The Great RaspberryPI-Gration',
+    slug: 'offboarding-my-raspberry-pis',
+    title: 'Offboarding My Raspberry Pis',
     date: '2025-07-30',
     excerpt: 'Why my Raspberry PIs are all stashed in my \'I\'ll use those wires one day\' box',
-    content: `# The Great RaspberryPI-Gration
+    content: `# Offboarding My Raspberry Pis
 
 Loading migration content...`,
     tags: ['raspberry-pi', 'migration', 'homelab', 'self-hosting'],
