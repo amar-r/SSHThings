@@ -13,8 +13,7 @@ This is a placeholder for the upcoming blog post about Raspberry Pi migration ad
 
 ## Coming Soon
 
-<div class="loading-bar"></div>
-<div class="loading-text">Loading migration content...</div>
+Loading migration content...
 
 More content will be added here soon...
 
