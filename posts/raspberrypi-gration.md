@@ -1,7 +1,7 @@
 ---
 title: "The Great RaspberryPI-Gration"
 date: "2025-07-30"
-excerpt: "A placeholder for the upcoming blog post about Raspberry Pi migration adventures."
+excerpt: "Why my Raspberry PIs are all stashed in my 'I'll use those wires one day' box"
 tags: ["raspberry-pi", "migration", "homelab", "self-hosting"]
 readTime: 5
 ---
