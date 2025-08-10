@@ -421,4 +421,52 @@ h1, h2 { letter-spacing: -0.01em; }
   html, html:focus-within { scroll-behavior: auto !important; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+/* Retro Landing Page Styles */
+@layer components {
+  .retro-crt {
+    box-shadow: 
+      0 0 0 1px rgba(0, 255, 0, 0.1),
+      inset 0 0 20px rgba(0, 255, 0, 0.05),
+      0 0 40px rgba(0, 255, 0, 0.1);
+  }
+  
+  .retro-scan-lines {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 0, 0.03) 2px,
+      rgba(0, 255, 0, 0.03) 4px
+    );
+  }
+  
+  .retro-text-glow {
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+  }
+  
+  .retro-button-glow {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+  }
+  
+  .retro-button-glow:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 0, 0.5);
+  }
+  
+  .retro-crash {
+    animation: crash-flicker 0.5s ease-in-out;
+  }
+  
+  @keyframes crash-flicker {
+    0%, 100% { opacity: 1; }
+    25% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+    75% { opacity: 0.2; }
+  }
+  
+  .retro-error-text {
+    color: #ff4444;
+    text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+  }
+}
 } 

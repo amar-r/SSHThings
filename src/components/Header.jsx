@@ -16,16 +16,6 @@ const Header = () => {
         
         <nav className="flex items-center gap-5 text-sm text-zinc-300">
           <Link
-            to="/"
-            className={`font-mono transition-all duration-200 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)] ${
-              isActive('/') 
-                ? 'text-[var(--focus-ring)]' 
-                : ''
-            }`}
-          >
-            blog
-          </Link>
-          <Link
             to="/about"
             className={`font-mono transition-all duration-200 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)] ${
               isActive('/about') 
