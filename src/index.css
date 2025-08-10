@@ -41,7 +41,7 @@
 
 :root{
   --font-ui: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', sans-serif;
-  --font-body: 'Source Sans 3', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', sans-serif;
+  --font-body: 'Manrope', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 body{ font-family: var(--font-ui); }
@@ -51,18 +51,18 @@ h1, h2 { letter-spacing: -0.01em; }
 
 /* Long-form readability */
 .article{
-  max-width: 68ch;                 /* slightly narrower for comfort */
+  max-width: 68ch;              /* narrower measure reduces eye travel */
   margin-inline: auto;
   padding: 0 1rem;
-  font-family: var(--font-body);   /* switch to sans body */
-  font-size: 18px;                 /* try 18 → bump to 18.5 if you like */
+  font-family: var(--font-body);
+  font-size: 18.5px;            /* 18–19px sweet spot */
   line-height: 1.85;
-  color: rgba(255,255,255,0.88);   /* softer than pure white */
+  color: rgba(255,255,255,0.9); /* softer than pure white */
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   text-wrap: pretty;
 }
-.article h1,.article h2,.article h3{ font-family: var(--font-ui); }
+.article h1,.article h2,.article h3{ font-family: var(--font-ui); letter-spacing: -0.01em; }
 .article h1{ font-weight: 600; letter-spacing: -0.01em; font-size: 2rem; line-height: 1.25; margin: 0 0 1rem; }
 .article h2{ font-weight: 600; letter-spacing: -0.005em; font-size: 1.5rem; margin: 2rem 0 .75rem; }
 .article h3{ font-weight: 600; font-size: 1.125rem; margin: 1.25rem 0 .5rem; }
