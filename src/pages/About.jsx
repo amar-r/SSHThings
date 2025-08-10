@@ -1,63 +1,82 @@
-import { Helmet } from 'react-helmet-async'
+import React from 'react'
 
-const About = () => {
+export default function About() {
   return (
-    <>
-      <Helmet>
-        <title>ABOUT - SSHTHINGS.COM</title>
-        <meta name="description" content="Learn more about me and my journey in technology." />
-      </Helmet>
+    <main>
+      <article className="article page-about">
+        <header className="mb-6">
+          <h1 className="text-3xl font-semibold tracking-tight">About me</h1>
+          <p className="mt-2 text-zinc-400/90 leading-relaxed">
+            I like messing around with tech, whether it's my self-hosted infrastructure for my homelab or a FlipperZero
+            I want to checkout but never take out of the box. I learn by doing, so the majority of what I have setup is for
+            my own education. What's nice is that things I wanted to do turned into things I can't live without (for the most part),
+            like my HomeAssistant setup combined with Frigate.
+          </p>
+        </header>
 
-      <div className="min-h-screen bg-dos-black">
-        <div className="max-w-6xl mx-auto px-4 py-8">
-          <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold text-dos-green mb-4 font-dos">
-              ABOUT ME
-            </h1>
-            <p className="text-dos-green font-dos">
-              A BRIEF INTRODUCTION TO WHO I AM AND WHAT I DO.
-            </p>
+        <section className="mt-8">
+          <h2 className="flex items-baseline gap-2">
+            <span className="text-emerald-400/80" aria-hidden>›</span>
+            What I do
+          </h2>
+          <ul className="mt-3 space-y-2">
+            <li className="flex gap-2"><span className="text-emerald-400/70 mt-[2px]">•</span><span>Self-hosting and homelab projects</span></li>
+            <li className="flex gap-2"><span className="text-emerald-400/70 mt-[2px]">•</span><span>Infrastructure automation</span></li>
+            <li className="flex gap-2"><span className="text-emerald-400/70 mt-[2px]">•</span><span>Containerization and orchestration</span></li>
+            <li className="flex gap-2"><span className="text-emerald-400/70 mt-[2px]">•</span><span>Network security and monitoring</span></li>
+            <li className="flex gap-2"><span className="text-emerald-400/70 mt-[2px]">•</span><span>Open-source software</span></li>
+          </ul>
+        </section>
+
+        <section className="mt-10">
+          <h2 className="flex items-baseline gap-2">
+            <span className="text-emerald-400/80" aria-hidden>›</span>
+            This blog
+          </h2>
+          <p className="mt-2 text-zinc-300">
+          I created this blog to talk about my adventures of all the things
+          I do or try doing with random tech. Hope you enjoy.
+          </p>
+        </section>
+
+        <section className="mt-10">
+          <h2 className="flex items-baseline gap-2">
+            <span className="text-emerald-400/80" aria-hidden>›</span>
+            Get in touch
+          </h2>
+          <div className="mt-3 rounded-md border border-zinc-800 bg-zinc-900/40 p-4 text-sm">
+            <p>Questions or suggestions? Happy to swap notes.</p>
+            <div className="mt-2 flex gap-4">
+              <a 
+                className="flex items-center gap-2 underline underline-offset-4" 
+                href="mailto:contact@sshthings.com"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.location.href = 'mailto:contact@sshthings.com';
+                }}
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                </svg>
+                contact@sshthings.com
+              </a>
+              <a className="flex items-center gap-2 underline underline-offset-4" href="https://github.com/amar-r" target="_blank" rel="noopener noreferrer">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                </svg>
+                GitHub
+              </a>
+              <a className="flex items-center gap-2 underline underline-offset-4" href="https://linkedin.com/in/amar-s-r" target="_blank" rel="noopener noreferrer">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                LinkedIn
+              </a>
+            </div>
           </div>
-
-          <div className="prose prose-lg max-w-none font-dos">
-            <p className="text-dos-green">
-              HI THERE! I'M A TECHNOLOGY ENTHUSIAST WHO LOVES EXPERIMENTING WITH INFRASTRUCTURE, 
-              AUTOMATION, AND SELF-HOSTING SOLUTIONS. THIS BLOG IS WHERE I SHARE MY EXPERIENCES, 
-              DISCOVERIES, AND THE OCCASIONAL MISADVENTURES FROM MY HOMELAB JOURNEY.
-            </p>
-
-            <h2 className="text-base font-bold text-dos-green mb-3 mt-6">&gt;&gt; WHAT I DO</h2>
-            <p className="text-dos-green">
-              I WORK IN THE TECHNOLOGY INDUSTRY, FOCUSING ON INFRASTRUCTURE, AUTOMATION, AND 
-              DEVOPS PRACTICES. MY INTERESTS INCLUDE:
-            </p>
-            <ul className="mb-3">
-              <li className="text-dos-green">&gt; SELF-HOSTING AND HOMELAB PROJECTS</li>
-              <li className="text-dos-green">&gt; INFRASTRUCTURE AUTOMATION</li>
-              <li className="text-dos-green">&gt; CONTAINERIZATION AND ORCHESTRATION</li>
-              <li className="text-dos-green">&gt; NETWORK SECURITY AND MONITORING</li>
-              <li className="text-dos-green">&gt; OPEN SOURCE SOFTWARE</li>
-            </ul>
-
-            <h2 className="text-base font-bold text-dos-green mb-3 mt-6">&gt;&gt; THIS BLOG</h2>
-            <p className="text-dos-green">
-              SSHTHINGS STARTED AS A WAY TO DOCUMENT MY HOMELAB EXPERIMENTS AND SHARE WHAT I LEARN 
-              ALONG THE WAY. I BELIEVE IN LEARNING BY DOING, AND THIS BLOG REFLECTS THAT APPROACH 
-              - YOU'LL FIND POSTS ABOUT BOTH SUCCESSFUL PROJECTS AND THE LESSONS LEARNED FROM 
-              THINGS THAT DIDN'T QUITE WORK OUT AS PLANNED.
-            </p>
-
-            <h2 className="text-base font-bold text-dos-green mb-3 mt-6">&gt;&gt; GET IN TOUCH</h2>
-            <p className="text-dos-green">
-              IF YOU HAVE QUESTIONS, SUGGESTIONS, OR JUST WANT TO CHAT ABOUT TECHNOLOGY, 
-              FEEL FREE TO REACH OUT. I'M ALWAYS INTERESTED IN CONNECTING WITH FELLOW 
-              TECHNOLOGY ENTHUSIASTS.
-            </p>
-          </div>
-        </div>
-      </div>
-    </>
-  )
-}
-
-export default About 
+        </section>
+      </article>
+    </main>
+  );
+} 

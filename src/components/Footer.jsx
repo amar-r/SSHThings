@@ -1,31 +1,11 @@
-import { Link } from 'react-router-dom'
+import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="border-t border-console-gray-light bg-console-bg mt-16">
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="text-console-gray-dim text-sm font-mono">
-            © {new Date().getFullYear()} sshthings.com
-          </div>
-          
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a
-              href="https://github.com/yourusername"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="console-link text-sm font-mono"
-            >
-              github
-            </a>
-            <Link to="/about" className="console-link text-sm font-mono">
-              about
-            </Link>
-            <Link to="/blog" className="console-link text-sm font-mono">
-              blog
-            </Link>
-          </div>
-        </div>
+    <footer className="mt-16 border-t border-zinc-900">
+      <div className="mx-auto max-w-screen-lg px-4 py-8 text-sm text-zinc-400 flex items-center justify-between">
+        <p>© {new Date().getFullYear()} sshthings</p>
+        <p className="hidden sm:block">quiet notes on infra and homelab</p>
       </div>
     </footer>
   )

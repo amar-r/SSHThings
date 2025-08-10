@@ -1,116 +1,47 @@
-// Simplified blog system that works reliably
+// Dynamic blog system that automatically loads posts from the posts/ directory
+// Excludes posts in the posts/upcoming/ folder
+
+// For now, let's use a simpler approach that works with the current setup
+// We'll manually manage the posts array but make it easy to add/remove posts
+
 export const posts = [
   {
-    slug: 'offboarding-my-raspberry-pis',
-    title: 'Offboarding My Raspberry Pis',
-    date: '2025-07-30',
-    excerpt: 'Why my Raspberry PIs are all stashed in my \'I\'ll use those wires one day\' box',
-    content: `# Offboarding My Raspberry Pis
+    slug: 'why-you-should-use-cloudflare-pages',
+    title: 'Why You Should Use Cloudflare',
+    date: '2025-08-09',
+    excerpt: 'Switching to Cloudflare was one of the best things I did for my portfolio site.',
+    content: `> I initially titled this post "Why you should use Cloudflare pages" but then at the end realized it's more "Why you should use Cloudflare". I'm 100% positive I'm not even going to be scratching the surface with what Cloudflare can provide. But this is what I've learned over a short period of time. I hope to learn more and implement more.
 
-Loading migration content...`,
-    tags: ['raspberry-pi', 'migration', 'homelab', 'self-hosting'],
-    readTime: 5,
-    image: null
-  },
-  {
-    slug: 'homelab-journey',
-    title: 'In The Beginning... HomeLab Edition',
-    date: '2025-07-21',
-    excerpt: 'What started as me tinkering with a Raspberry Pi Camera module for a secure and private baby cam turning into a full fledged home security system and full home automation. Come join me in this journey to see what all I have done.',
-    content: `# In The Beginning... HomeLab Edition
+## Synopsis
 
-## Introduction
+I wanted to start hosting a portfolio page to provide a little more infomation about myself that LinkedIn couldn't quite fulfill. I wanted something that was essentially free, exluding the domain purchase of course. Below I talk about how I found the best solution for me. Free, secure, and privacy focused.
 
-I remember it all as if it were yesterday. It was the beginning of COVID and around when my first child was born. I was already working from home and was entering my parental leave. Between changing poopy diapers and taking naps whenever I could, I got the itch to do something during my free time. With my wife was returning to work I wanted to provide her a privacy focused and secure way of watching our child while at the office. In came the PiHole/PiVPN combo and and a tiny little camera module that would be attached to a Raspberry Pi Zero. Using MotionEyeOS, I sucessfully setup a local and secure baby camera. #TheBeginning
+## The Journey
 
-My paternatily leave was over, I was excited to tell some folks at work what I had done with the custom baby monitor. Then it happened, a buddy of mine told me about HomeAssistant. Talk about gateway drug. As if I wasn't already sleep deprived. Now I have something else keeping me up at night. At some late hour I'm having a conversation with myself "Which zibgee/z-wave device should I buy?" while browsing the Amazon search results looking for an excuse to add one more automation to HomeAssistant.
+I really want to exemplify my skillset, to standout in today's job market. I figured having a personal site would help. So began my journey to finding the perfect domain name and how to host it.
 
-Fast forward to 2025, almost every door in my house has a door sensor that's connected to some z-wave light switch via a HomeAssistant automation. I decided to upgrade my networking by getting a pfSense device, because I thought "Why not get something super complicated to force myself to get more comfortable with networking?". In addition to that, what was once my gaming rig has now turned into the host running Ubuntu that's housing 25+ Docker containers.
+Circa 2018, I had a technical blog around SCCM/MECM. I hosted it on AWS under their free tier. The thing about AWS and it's free tier (at that time) is that it lasted for a year and then you had to start paying for the resources. Me being extra frugal decided that maybe I don't need a blog anymore so I decided to shut it down. Sorry to everyone who expected more content, I kinda ghosted everyone. Fast forward to today, I can't really go back down the AWS free tier route anymore. I honestly didn't even bother looking to see if it changed. I did some digging, talked to friends, and used AI to find some solutions; in came GitHub Pages, Netlify, and Vercel.
 
-## The Internet Isn't Working
+### Netlify
 
-The one saying nobody wants to hear while working on **\`enhancing\`** their home network, especially not from their spouse! As usual, I pick the worst time to start messing with my setup; right when my wife is streaming her favorite shows. I decided, hey why not try freeing up a Rasbperry Pi by replacing PiHole and PiVPN with the Wireguard and pfBlocker pfSense packages.
+I actually had never heard of Netlify. My consultant (AI) told me about it and I just went with it. I was excited to have something back up and running for the public to see. Netlify was cool, it allowed me to use a custom domain (Amar-r.com) and GitOps for free. Which means, anytime I posted a new commit to my main branch a new deployment was kicked off in Netlify and updated my page. It handled SSL and a few other security functionalities out of the box with minimal clicks. It was nice to use. I'm sure I only touched a small part of what I could do with it. Mabye one day I'll go back and investigate further. Feel free to check it out at [Netlify.com](https://www.netlify.com/).
 
-I started off on a positive outcome, I had wireguard sucesfully configured and tested. Next I installed pfBlocker and allegedlly set it up properly. Now I need to test how the ad blocking works with the new setup. So I modify the DNS settings by removing the PiHole IP and replacing it with a combination of AdGuard, Quad9, and Cloudflare IPs.
+### GitHub Pages
 
-Then I hear those dreaded words "the internet isn't working"... oh nooo! I franticly start checking all my configurations. I finally see the mistake, the new DNS configurations weren't propogated fully across the devices at home. They were all still pointing to PiHole which was now turned off and stored in that one box thas has all those wires which I'll definitely use one day.
+I actually have this blog posted on [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages), because variety is good. When I thought about it, I was like why not use GitHub Pages and more importantly [GitHub Actions](https://github.com/features/actions). Once you get the hang of it, it's pretty cool. All your source code is in one place so why not have the site hosted in the same spot. Creating the deploy.yml file was pretty straightforward and kinda a breath of fresh air after using Jenkins and groovy since ~2020 🤮.
 
-I also learned that pfBlocker wasn't for me so I reverted back to PiHole which has the nice GUI and allow/block lists because who wants to go in and keep adding/removing DNSBL lists and looking at those dreaded logs in pfSense console.
+### Cloudflare Pages
 
-## All About Containers
+I migrated my domain from Namecheap over to Cloudflare for...reasons. I like the features Cloudflare provides for domains, like unique visitors, metrics on Geolocation for visitors, and a slew of security options all available for $free.99. 
 
-This is where things started to get a little wild. I have 25+ containers running. I like the idea of being able to essentially have a system fully setup with a click of a button. Let's take my HomeAssistant (HA) setup, I had it running on a dedicated Raspberry Pi (RBPi). I have z-wave and zigbee hooked up to it and it's hardwired to my switch. If anything were to happen to that RBPi it would be such a pain to setup the whole system. Sure I have backups of my HA instance. I just didn't want to deal with SD cards going bad, etc. Maybe I'm just making excuses at this point. I just liked having the ability to bring down and container and back up on the fly and everything **just works**.
+I've always been a big propoent of security and privacy. I don't like my data or information to be out there for people to find. When I created my portfoio page, I decided to provide more information than I typically would. I had my entire resume posted on my site, which included the city and state of my current residence, my email, and my phone number. Yes, you read that correctly. I put my resume with my personal phone number on a publically facing website.
 
-Here is my current layout.
-\`\`\`
-services/
-├── core
-│   ├── frigate
-│   ├── homeassistant
-│   ├── portainer
-│   └── zwave
-├── monitoring
-│   ├── dozzle
-│   └── speedtest
-└── utilities
-    ├── bookstack
-    ├── changedetection
-    ├── duplicati
-    ├── heimdall
-    ├── mosquitto
-    └── watchtower
-\`\`\`
+This is when I started to really like [Cloudflare Pages](https://pages.cloudflare.com/) and a feature within Cloudflare itself, called [Cloudflare Zero Trust](https://developers.cloudflare.com/cloudflare-one/) one-time PIN (OTP). Before you say anything, you don't have to use Cloudflare Pages to utlilize the Cloudflare Zero Trust features, you only need your domain to be managed by Cloudflare.
 
-You can see the entire setup on my [GitHub](https://github.com/amar-r/HomeFleet/tree/main).
+The OTP feature really came in handy for me because I was able to have my resume posted on my site but with a little extra security. In order for someone to view my resume, they have to enter their email and then enter a PIN which was sent to them via Cloudflare. Much better solution than just having it readily available. Yes, I know it's still easy for someone to view my entire resume. I'm most likely going to setup Cloudflare's feature where I get an email to approve requests people put in to gain access, which is timelocked btw to a specific time.
 
-## What's Next
-
-In future posts, I'll start diving deeper into some of my containerized solutions. Why I decided to pick them and the issues I ran along the way.
-
----
-
-*What started as me tinkering with a Raspberry Pi Camera module for a secure and private baby cam turning into a full fledged home security system and full home automation. Come join me in this journey to see what all I have done.*`,
-    tags: ['homelab', 'self-hosting', 'monitoring', 'automation', 'family-tech', 'infrastructure'],
-    readTime: 7,
-    image: null
-  },
-  {
-    slug: 'first-post',
-    title: 'Welcome to SSHthings - My First Blog Post',
-    date: '2025-07-17',
-    excerpt: 'An introduction to SSHthings (Self-Service Homelab) - my personal blog where I\'ll be sharing self-hosting projects, automation experiments, and infrastructure insights.',
-    content: `# Welcome to SSHthings - My First Blog Post
-
-Hello and welcome to **SSHthings** (Self-Service Homelab)! This is my personal blog where I'll be sharing my journey through self-hosting, infrastructure automation, and technology experiments.
-
-## What to Expect
-
-This blog will cover a variety of topics including:
-
-- **Self-Hosting Projects**: Docker containers, Kubernetes clusters, and home server setups
-- **Infrastructure Automation**: Terraform, Ansible, and CI/CD pipelines
-- **Cloud Solutions**: AWS, Azure, and multi-cloud strategies
-- **DevOps Practices**: Monitoring, logging, and security best practices
-- **Technology Experiments**: New tools, frameworks, and methodologies
-
-## My Background
-
-I'm a Lead Systems Engineer with over 13 years of experience in cloud infrastructure, automation, and security. I've worked with various technologies and platforms, and I'm passionate about sharing knowledge and learning from the community.
-
-## Why "SSHthings"?
-
-The name "SSHthings" represents my focus on **self-hosting** and **infrastructure** projects. SSH stands for **Self-Service Homelab**, reflecting my approach to building and managing my own homelab infrastructure. SSH (Secure Shell) is also a fundamental tool for managing remote systems, and it symbolizes the technical foundation of the topics I'll be covering here.
-
-## My Approach
-
-I believe in:
-- **Learning in Public**: Sharing both successes and failures
-- **Practical Examples**: Real-world implementations and code snippets
-- **Community Focus**: Engaging with others who share similar interests
-- **Continuous Improvement**: Always exploring new technologies and approaches
-
-Stay tuned for more content about self-hosting adventures, automation experiments, and infrastructure insights!`,
-    tags: ['welcome', 'introduction', 'self-hosting'],
+Please go checkout what they have to offer from a securitiy standpoint. There are other features I implemented like HSTS to force browsers to communicate with my site strictly over HTTPS.`,
+    tags: ['security', 'privacy', 'AI', 'self-promotion'],
     readTime: 5,
     image: null
   }
@@ -126,4 +57,10 @@ export const getAllPosts = () => {
 
 export const getPostsByTag = (tag) => {
   return posts.filter(post => post.tags.includes(tag))
+}
+
+// Helper function to get upcoming posts (for admin purposes)
+export const getUpcomingPosts = () => {
+  // This would scan the upcoming folder when we implement full dynamic loading
+  return []
 } 

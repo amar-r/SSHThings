@@ -8,48 +8,34 @@ const Header = () => {
   }
 
   return (
-    <header className="console-header">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
-            <Link to="/" className="text-lg font-bold text-console-green hover:text-console-green-dim transition-colors duration-200 font-mono">
-              <span className="text-console-accent">$</span> sshthings<span className="cursor-blink"></span>
-            </Link>
-          </div>
-          
-          <nav className="flex space-x-6">
-            <Link
-              to="/"
-              className={`text-sm font-mono transition-all duration-200 ${
-                isActive('/') 
-                  ? 'console-nav-active' 
-                  : 'console-nav-link'
-              }`}
-            >
-              home
-            </Link>
-            <Link
-              to="/blog"
-              className={`text-sm font-mono transition-all duration-200 ${
-                isActive('/blog') 
-                  ? 'console-nav-active' 
-                  : 'console-nav-link'
-              }`}
-            >
-              blog
-            </Link>
-            <Link
-              to="/about"
-              className={`text-sm font-mono transition-all duration-200 ${
-                isActive('/about') 
-                  ? 'console-nav-active' 
-                  : 'console-nav-link'
-              }`}
-            >
-              about
-            </Link>
-          </nav>
-        </div>
+    <header className="sticky top-0 z-40 backdrop-blur bg-black/40 border-b border-zinc-900">
+      <div className="mx-auto max-w-screen-lg px-4 h-14 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)]">
+          <span className="font-mono text-sm text-zinc-200">sshthings</span>
+        </Link>
+        
+        <nav className="flex items-center gap-5 text-sm text-zinc-300">
+          <Link
+            to="/"
+            className={`font-mono transition-all duration-200 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)] ${
+              isActive('/') 
+                ? 'text-[var(--focus-ring)]' 
+                : ''
+            }`}
+          >
+            blog
+          </Link>
+          <Link
+            to="/about"
+            className={`font-mono transition-all duration-200 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus-ring)] ${
+              isActive('/about') 
+                ? 'text-[var(--focus-ring)]' 
+                : ''
+            }`}
+          >
+            about
+          </Link>
+        </nav>
       </div>
     </header>
   )

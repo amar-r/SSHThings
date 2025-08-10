@@ -1,10 +1,21 @@
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
-import BlogCard from '../components/BlogCard'
+import PostListItem from '../components/PostListItem'
 import { getAllPosts } from '../utils/posts'
 
 const Home = () => {
-  const recentPosts = getAllPosts().slice(0, 3)
+  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedTag, setSelectedTag] = useState('')
+  
+  const allPosts = getAllPosts()
+  const allTags = [...new Set(allPosts.flatMap(post => post.tags || []))]
+  
+  const filteredPosts = allPosts.filter(post => {
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         (post.excerpt && post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()))
+    const matchesTag = !selectedTag || (post.tags && post.tags.includes(selectedTag))
+    return matchesSearch && matchesTag
+  })
 
   return (
     <>
@@ -13,68 +24,58 @@ const Home = () => {
         <meta name="description" content="A personal blog about technology, homelab, and infrastructure experiments." />
       </Helmet>
 
-      <div className="min-h-screen bg-dos-black">
-        {/* Hero Section */}
-        <section className="py-8 px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center">
-              <h1 className="text-2xl font-bold text-dos-green mb-4 font-dos">
-                WELCOME TO SSHTHINGS.COM
-              </h1>
-              <p className="text-dos-green mb-6 max-w-2xl mx-auto font-dos">
-                A PERSONAL BLOG ABOUT TECHNOLOGY, HOMELAB EXPERIMENTS, AND INFRASTRUCTURE ADVENTURES.
-              </p>
-              <Link
-                to="/blog"
-                className="dos-button"
+      <div className="min-h-screen bg-console-bg">
+        <div className="page-wrap">
+          <section className="intro">
+            <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-zinc-100">sshthings</h1>
+            <p className="mt-2 text-base sm:text-lg text-zinc-400/90">Short, reproducible notes on homelab, self-hosting, and infrastructure experiments.</p>
+          </section>
+
+          {/* Search and Filter */}
+          <div className="mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 mb-6">
+              <input
+                type="text"
+                placeholder="Search posts…"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="flex-1 h-10 rounded-md bg-zinc-900/40 border border-zinc-800 px-3 text-sm placeholder:text-zinc-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/40"
+              />
+              <select
+                value={selectedTag}
+                onChange={(e) => setSelectedTag(e.target.value)}
+                className="h-10 rounded-md bg-zinc-900/40 border border-zinc-800 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-400/40"
+                aria-label="Filter by tag"
               >
-                READ THE BLOG
-              </Link>
+                <option value="">All tags</option>
+                {allTags.map(tag => (
+                  <option key={tag} value={tag}>{tag}</option>
+                ))}
+              </select>
             </div>
           </div>
-        </section>
 
-        {/* Recent Posts */}
-        <section className="py-8 px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-lg font-bold text-dos-green mb-6 text-center font-dos">
-              RECENT POSTS
-            </h2>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {recentPosts.map((post) => (
-                <BlogCard key={post.slug} post={post} />
+          {/* Results */}
+          {filteredPosts.length > 0 ? (
+            <div className="list">
+              {filteredPosts.map((p) => (
+                <PostListItem key={p.slug} post={p} />
               ))}
             </div>
-            <div className="text-center mt-6">
-              <Link
-                to="/blog"
-                className="dos-link font-dos"
-              >
-                VIEW ALL POSTS &gt;&gt;
-              </Link>
+          ) : allPosts.length === 0 ? (
+            <div className="mx-auto max-w-screen-sm px-4 py-20 text-center space-y-4">
+              <h1 className="text-3xl font-semibold tracking-tight">Coming soon</h1>
+              <p className="text-sm text-zinc-400">Shipping posts worth copying. No filler.</p>
+              <div className="loading-bar"></div>
             </div>
-          </div>
-        </section>
-
-        {/* About Section */}
-        <section className="py-8 px-4 border-t border-dos-green">
-          <div className="max-w-6xl mx-auto text-center">
-            <h2 className="text-lg font-bold text-dos-green mb-4 font-dos">
-              ABOUT ME
-            </h2>
-            <p className="text-dos-green mb-6 max-w-2xl mx-auto font-dos">
-              I'M PASSIONATE ABOUT TECHNOLOGY AND LOVE EXPERIMENTING WITH INFRASTRUCTURE, 
-              AUTOMATION, AND SELF-HOSTING SOLUTIONS. THIS BLOG IS WHERE I SHARE MY 
-              EXPERIENCES AND DISCOVERIES.
-            </p>
-            <Link
-              to="/about"
-              className="dos-link font-dos"
-            >
-              LEARN MORE ABOUT ME &gt;&gt;
-            </Link>
-          </div>
-        </section>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-console-gray-dim text-lg font-mono">
+                No posts found matching your criteria.
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </>
   )

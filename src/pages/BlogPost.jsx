@@ -28,49 +28,48 @@ const BlogPost = () => {
         <meta name="description" content={post.summary} />
       </Helmet>
 
-      <div className="min-h-screen bg-dos-black">
-        <article className="max-w-6xl mx-auto px-4 py-8">
-          {/* Header */}
-          <header className="mb-6">
-            <Link to="/blog" className="dos-link mb-4 inline-block font-dos">
-              &lt;&lt; BACK TO BLOG
-            </Link>
-            
-            <h1 className="text-xl font-bold text-dos-green mb-4 font-dos">
-              &gt; {post.title.toUpperCase()}
-            </h1>
-            
-            <div className="flex items-center text-dos-green-dim mb-4 font-dos">
-              <span className="text-xs">
-                DATE: {new Date(post.date).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: '2-digit',
-                  day: '2-digit'
-                })}
-              </span>
-              {post.tags && post.tags.length > 0 && (
-                <div className="flex items-center ml-4">
-                  <span className="text-xs mr-2">TAGS:</span>
-                  <div className="flex gap-1">
-                    {post.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="inline-block bg-dos-gray-dark text-dos-green text-xs px-2 py-1 font-dos border border-dos-green"
-                      >
-                        {tag.toUpperCase()}
-                      </span>
-                    ))}
+      <div className="min-h-screen bg-console-bg">
+        <main>
+          <article className="article">
+            {/* Header */}
+            <header className="mb-6">
+              <Link to="/blog" className="text-sm text-zinc-400 hover:text-zinc-200 mb-4 inline-block">
+                ← Back to blog
+              </Link>
+              
+              <h1>{post.title}</h1>
+              
+              <div className="flex items-center text-zinc-500 text-sm mb-4">
+                <span>
+                  {new Date(post.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </span>
+                {post.tags && post.tags.length > 0 && (
+                  <div className="flex items-center ml-4">
+                    <div className="flex gap-1">
+                      {post.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="inline-block bg-zinc-800 text-zinc-300 text-xs px-2 py-1 rounded border border-zinc-700"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-          </header>
+                )}
+              </div>
+            </header>
 
-          {/* Content */}
-          <div className="prose prose-lg max-w-none font-dos">
-            <MarkdownRenderer content={post.content} />
-          </div>
-        </article>
+            {/* Content */}
+            <div>
+              <MarkdownRenderer content={post.content} />
+            </div>
+          </article>
+        </main>
       </div>
     </>
   )

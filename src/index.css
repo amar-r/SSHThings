@@ -39,7 +39,97 @@
   }
 }
 
+:root{
+  --font-ui: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', sans-serif;
+  --font-body: 'Source Sans 3', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+body{ font-family: var(--font-ui); }
+
+/* Subtle rhythm for headings site-wide */
+h1, h2 { letter-spacing: -0.01em; }
+
+/* Long-form readability */
+.article{
+  max-width: 68ch;                 /* slightly narrower for comfort */
+  margin-inline: auto;
+  padding: 0 1rem;
+  font-family: var(--font-body);   /* switch to sans body */
+  font-size: 18px;                 /* try 18 → bump to 18.5 if you like */
+  line-height: 1.85;
+  color: rgba(255,255,255,0.88);   /* softer than pure white */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  text-wrap: pretty;
+}
+.article h1,.article h2,.article h3{ font-family: var(--font-ui); }
+.article h1{ font-weight: 600; letter-spacing: -0.01em; font-size: 2rem; line-height: 1.25; margin: 0 0 1rem; }
+.article h2{ font-weight: 600; letter-spacing: -0.005em; font-size: 1.5rem; margin: 2rem 0 .75rem; }
+.article h3{ font-weight: 600; font-size: 1.125rem; margin: 1.25rem 0 .5rem; }
+.article p{ margin: .75rem 0; }
+.article a{ color:#7EE787; text-underline-offset: 3px; }
+.article a:hover{ text-decoration: underline; }
+.article code{ font-family: var(--font-mono); font-size: .95em; background: rgba(255,255,255,.04); padding: .08rem .3rem; border-radius: 4px; }
+.article pre{ font-family: var(--font-mono); background: rgba(255,255,255,.04); border: 1px solid rgb(39 39 42); border-radius: 8px; padding: 1rem; overflow: auto; }
+.article blockquote{ border-left: 4px solid #7EE787; padding-left: 1rem; margin: 1rem 0; font-style: italic; color: rgb(186 186 193); }
+/* optional: softer section chevron */
+.article h2::before{ content:'›'; margin-right:.5rem; color:#4ade80; opacity:.7; }
+
+/* About page: ensure no ALL CAPS in body */
+.page-about p, .page-about li{ text-transform: none; }
+
+/* About/article polish */
+.article h2 { letter-spacing: -0.005em; }
+.article section + section { margin-top: 2.25rem; }
+
+/* About page shouldn't shout in ALL CAPS */
+.page-about p, .page-about li { 
+  text-transform: none; 
+}
+
 @layer components {
+  /* Subtle, human-feel adjustments that sit on top of your theme tokens */
+  /* Focus ring that matches your accent vibe; change value if desired */
+  :root { --focus-ring: #7EE787; }
+
+  /* Links: understated by default, confident on hover */
+  a { text-underline-offset: 2px; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--focus-ring); outline-offset: 2px; }
+
+  /* Type rhythm: a touch of letter-spacing to avoid the 'default Tailwind' look */
+  h1 { letter-spacing: -0.01em; }
+  h2 { letter-spacing: -0.005em; }
+  p { line-height: 1.7; }
+
+  /* Section spacing helper for pages */
+  .section { margin-block: 2.25rem; }
+
+  /* Subtle card hover (applies to future post cards; noop today) */
+  .card { transition: transform 120ms ease, box-shadow 120ms ease; }
+  .card:hover { transform: translateY(-1px); }
+
+  /* Table/blockquote minor refinements if present later */
+  .prose blockquote { border-left-width: 4px; padding-left: 1rem; font-style: italic; }
+  .prose table { font-size: 0.95rem; }
+
+  /* Landing page list feed styles */
+  .page-wrap { @apply mx-auto max-w-3xl px-4; }
+  .intro { @apply pt-10 pb-6; }
+  .intro h1 { letter-spacing: -0.01em; }
+  .intro p { @apply text-zinc-400 mt-2; }
+
+  .list { @apply divide-y divide-zinc-800; }
+  .post-row { @apply py-4; }
+  .post-title { @apply text-lg sm:text-xl font-semibold leading-snug; letter-spacing: -0.005em; }
+  .post-title a { @apply hover:underline underline-offset-4; }
+  .post-excerpt { @apply text-zinc-400 mt-1; }
+  .post-meta { @apply text-[12px] font-mono text-zinc-500 mt-1 flex flex-wrap gap-x-3 gap-y-1; }
+  .tag { @apply text-[11px] border border-zinc-700 rounded px-1.5 py-0.5 text-zinc-400; }
+  .section-h { @apply mt-10 mb-3 flex items-center gap-3 text-sm text-zinc-400 uppercase tracking-wider; }
+  .section-h::before { content: ''; @apply inline-block h-px w-6 bg-zinc-700; }
+  .empty { @apply text-center text-zinc-400 border border-zinc-800 bg-zinc-900/40 rounded p-6; }
+  
   .console-prompt {
     @apply text-console-green font-mono;
   }
@@ -318,11 +408,17 @@
   }
   
   @keyframes pulse {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0.5;
-    }
+  0%, 100% {
+    opacity: 1;
   }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Reduce motion: disable smooth scroll/animations if user prefers */
+@media (prefers-reduced-motion: reduce){
+  html, html:focus-within { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
 } 
