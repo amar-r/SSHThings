@@ -78,43 +78,59 @@ const RetroLanding = () => {
   }, [bootState])
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center p-4">
-      {/* CRT Monitor */}
+    <div className="min-h-screen bg-gradient-to-b from-gray-900 to-black flex items-center justify-center p-2 sm:p-4">
+      {/* Retro Computer Setup */}
       <div className="relative">
-        {/* Monitor Frame */}
-        <div className="bg-zinc-800 rounded-lg p-8 shadow-2xl border-2 border-zinc-700">
-          {/* Screen */}
-          <div className="bg-black rounded-md p-6 w-96 h-80 relative overflow-hidden retro-crt retro-scan-lines">
-            {/* CRT Scan Lines Effect */}
-            <div className="absolute inset-0 opacity-10">
-              {[...Array(20)].map((_, i) => (
-                <div
-                  key={i}
-                  className="h-px bg-green-400 animate-pulse"
-                  style={{ top: `${i * 5}%` }}
-                />
-              ))}
+        {/* Monitor Stand/Base */}
+        <div className="bg-zinc-700 rounded-lg p-2 sm:p-4 shadow-xl border border-zinc-600">
+          {/* Monitor Frame - More authentic retro look */}
+          <div className="retro-monitor rounded-lg p-3 sm:p-6 shadow-2xl border-2 border-zinc-600 relative">
+            {/* Power Button */}
+            <div className="absolute -top-2 -left-2 w-4 h-4 bg-red-500 rounded-full border border-red-400 shadow-lg"></div>
+            
+            {/* Speaker Grill */}
+            <div className="absolute -top-2 right-8 w-12 h-2 bg-zinc-900 rounded-sm border border-zinc-700">
+              <div className="grid grid-cols-6 gap-0.5 p-0.5">
+                {[...Array(12)].map((_, i) => (
+                  <div key={i} className="w-1 h-1 bg-zinc-700 rounded-sm"></div>
+                ))}
+              </div>
             </div>
+            
+            {/* Monitor Bezel */}
+            <div className="bg-zinc-900 rounded-md p-2 sm:p-4 border border-zinc-700">
+              {/* Screen */}
+              <div className="bg-black rounded-sm p-3 sm:p-5 w-80 sm:w-96 h-64 sm:h-80 relative overflow-hidden retro-crt retro-scan-lines">
+                {/* CRT Scan Lines Effect */}
+                <div className="absolute inset-0 opacity-10">
+                  {[...Array(20)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="h-px bg-green-400 animate-pulse"
+                      style={{ top: `${i * 5}%` }}
+                    />
+                  ))}
+                </div>
 
-            {/* Content */}
-            <div className="relative z-10 h-full">
+                {/* Content */}
+                <div className="relative z-10 h-full">
               {bootState === 'idle' && (
-                <div className="text-green-400 font-mono text-sm h-full flex flex-col items-center justify-center">
+                <div className="text-green-400 font-mono text-xs sm:text-sm h-full flex flex-col items-center justify-center">
                   <div className="text-center space-y-4">
-                    <div className="text-2xl mb-8 retro-text-glow">💾</div>
-                    <div className="text-lg retro-text-glow">INSERT DISK TO BOOT</div>
-                    <button
-                      onClick={handleInsertDisk}
-                      className="bg-green-400 text-black px-6 py-2 rounded font-bold hover:bg-green-300 transition-colors retro-button-glow"
-                    >
-                      INSERT DISK
-                    </button>
+                    <div className="text-xl sm:text-2xl mb-6 sm:mb-8 retro-text-glow">💾</div>
+                    <div className="text-sm sm:text-lg retro-text-glow">INSERT DISK TO BOOT</div>
+                                          <button
+                        onClick={handleInsertDisk}
+                        className="bg-green-400 text-black px-4 sm:px-6 py-2 rounded font-bold hover:bg-green-300 transition-colors retro-button-glow text-xs sm:text-sm"
+                      >
+                        INSERT DISK
+                      </button>
                   </div>
                 </div>
               )}
 
               {bootState === 'booting' && (
-                <div className="text-green-400 font-mono text-sm h-full">
+                <div className="text-green-400 font-mono text-xs sm:text-sm h-full">
                   {bootLines.map((line, index) => (
                     <div key={index} className="mb-1">
                       {line}
@@ -125,7 +141,7 @@ const RetroLanding = () => {
               )}
 
               {bootState === 'crashed' && (
-                <div className="text-red-400 font-mono text-sm h-full retro-crash">
+                <div className="text-red-400 font-mono text-xs sm:text-sm h-full retro-crash">
                   <div className="mb-4">
                     {bootLines.map((line, index) => (
                       <div key={index} className={`mb-1 ${line.includes('ERROR') || line.includes('Kernel panic') || line.includes('*** System halted ***') ? 'retro-error-text font-bold' : ''}`}>
@@ -140,7 +156,7 @@ const RetroLanding = () => {
               )}
 
               {bootState === 'ready' && (
-                <div className="text-green-400 font-mono text-sm h-full">
+                <div className="text-green-400 font-mono text-xs sm:text-sm h-full">
                   <div className="mb-4">
                     {bootLines.map((line, index) => (
                       <div key={index} className="mb-1">
@@ -151,7 +167,7 @@ const RetroLanding = () => {
                   
                   {showCommands && (
                     <div className="space-y-2">
-                      <div className="text-yellow-400">Available commands:</div>
+                      <div className="text-yellow-400 text-xs sm:text-sm">Available commands:</div>
                       <div className="space-y-1">
                         <Link to="/Amar_Rathore_Resume.pdf" target="_blank" className="block hover:text-white transition-colors">
                           &gt; resume
@@ -173,26 +189,50 @@ const RetroLanding = () => {
                   )}
                 </div>
               )}
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        {/* Keyboard */}
-        <div className="mt-8 bg-zinc-700 rounded-lg p-4 shadow-lg">
-          <div className="grid grid-cols-10 gap-1">
-            {[...Array(50)].map((_, i) => (
-              <div
-                key={i}
-                className="w-6 h-6 bg-zinc-600 rounded-sm border border-zinc-500"
-              />
-            ))}
-          </div>
-        </div>
-
+        
         {/* Floppy Drive */}
         <div className="absolute -top-4 -right-4 bg-zinc-600 rounded-lg p-2 shadow-lg">
           <div className="w-8 h-6 bg-zinc-800 rounded border border-zinc-500 flex items-center justify-center">
             <div className="w-4 h-2 bg-zinc-700 rounded-sm"></div>
+          </div>
+        </div>
+        
+        {/* Keyboard */}
+        <div className="retro-keyboard mt-4 sm:mt-6 rounded-lg p-3 sm:p-4 shadow-xl border border-zinc-600">
+          <div className="bg-zinc-900 rounded-md p-2 sm:p-3 border border-zinc-700">
+            {/* Keyboard Branding */}
+            <div className="text-center mb-2">
+              <div className="text-zinc-500 text-xs font-mono">SSHTHINGS-86</div>
+            </div>
+            
+            {/* Keyboard Keys */}
+            <div className="grid grid-cols-10 gap-1 sm:gap-2">
+              {[...Array(40)].map((_, i) => (
+                <div
+                  key={i}
+                  className="retro-key rounded-sm h-3 sm:h-4 border border-zinc-600 opacity-60 hover:opacity-80 transition-all duration-150"
+                />
+              ))}
+            </div>
+            {/* Space Bar */}
+            <div className="mt-2 sm:mt-3">
+              <div className="retro-key rounded-sm h-3 sm:h-4 w-3/4 mx-auto border border-zinc-600 opacity-60" />
+            </div>
+            
+            {/* Function Keys Row */}
+            <div className="mt-2 grid grid-cols-12 gap-1">
+              {[...Array(12)].map((_, i) => (
+                <div
+                  key={i}
+                  className="retro-key rounded-sm h-2 border border-zinc-500 opacity-50"
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -428,7 +428,9 @@ h1, h2 { letter-spacing: -0.01em; }
     box-shadow: 
       0 0 0 1px rgba(0, 255, 0, 0.1),
       inset 0 0 20px rgba(0, 255, 0, 0.05),
-      0 0 40px rgba(0, 255, 0, 0.1);
+      0 0 40px rgba(0, 255, 0, 0.1),
+      inset 0 0 100px rgba(0, 0, 0, 0.3);
+    background: radial-gradient(ellipse at center, rgba(0, 255, 0, 0.02) 0%, transparent 70%);
   }
   
   .retro-scan-lines {
@@ -467,6 +469,33 @@ h1, h2 { letter-spacing: -0.01em; }
   .retro-error-text {
     color: #ff4444;
     text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+  }
+  
+  /* Retro Computer Hardware Styles */
+  .retro-monitor {
+    background: linear-gradient(145deg, #374151, #1f2937);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .retro-keyboard {
+    background: linear-gradient(145deg, #1f2937, #111827);
+    box-shadow: 
+      0 4px 16px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  
+  .retro-key {
+    background: linear-gradient(145deg, #4b5563, #374151);
+    box-shadow: 
+      0 1px 3px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+  
+  .retro-key:hover {
+    background: linear-gradient(145deg, #6b7280, #4b5563);
+    transform: translateY(-1px);
   }
 }
 } 
